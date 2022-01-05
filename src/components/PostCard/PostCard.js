@@ -5,7 +5,7 @@ import { postPathBySlug, sanitizeExcerpt } from 'lib/posts';
 import Metadata from 'components/Metadata';
 import Author from 'components/Author';
 
-import { FaMapPin } from 'react-icons/fa';
+// import { FaMapPin } from 'react-icons/fa';
 import styles from './PostCard.module.scss';
 import FeaturedImage from 'components/FeaturedImage';
 
@@ -49,7 +49,7 @@ const PostCard = ({ post, options = {} }) => {
         </div>
       )}
       <div>
-        {isSticky && <FaMapPin aria-label="Sticky Post" />}
+        {/* {isSticky && <FaMapPin aria-label="Sticky Post" />} */}
         <Metadata className={styles.postCardMetadata} {...metadata} />
         <Link href={postPathBySlug(slug)}>
           <a>

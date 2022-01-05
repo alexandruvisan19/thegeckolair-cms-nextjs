@@ -3,11 +3,10 @@
 .metadata {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   color: $color-gray-600;
   list-style: none;
   padding: 0;
-  margin: 0 -0.8em;
+  margin: 0 0 1rem 0;
 
   ul {
     list-style: none;
@@ -15,17 +14,9 @@
     margin: 0;
   }
 
-  & > li {
-    margin: 0.8em 0.8em 0 0.8em;
-  }
-
-  li:last-child {
-    color: $color-black-300;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 0.76rem;
-    padding: 5px;
-  }
+  // & > li {
+  //   margin: 0 0 0 0.9rem;
+  // }
 
   p {
     margin: 0;
@@ -76,12 +67,17 @@
       }
     }
   }
+
   p {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: #cf7c00;
     background-color: #ffe8c6;
-    padding: 1.5px 5px;
+    padding: 0 5px;
     border-radius: 5px;
+
+    &:first-child {
+      margin-right: 12px;
+    }
 
     &:hover {
       background-color: #fed8a0;
@@ -93,6 +89,14 @@
       color: #ff9900;
     }
   }
+}
+
+.metadataDate {
+  color: $color-black-300;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.66rem;
+  padding: 0 0 0.3px 0;
 }
 
 .metadataSticky {

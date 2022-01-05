@@ -46,7 +46,7 @@ const Metadata = ({ className, date, categories, options = DEFAULT_METADATA_OPTI
               <Link href={categoryPathBySlug(categories[0].slug)}>
                 <a>{categories[0].name}</a>
               </Link>
-              {categories.length > 1 && ' and more'}
+              {/* {categories.length > 1 && ' and more'} */}
             </p>
           )}
           {!compactCategories && (
@@ -65,7 +65,7 @@ const Metadata = ({ className, date, categories, options = DEFAULT_METADATA_OPTI
         </li>
       )}
       {date && (
-        <li>
+        <li className={styles.metadataDate}>
           <time pubdate="pubdate" dateTime={date}>
             {formatDate(date)}
           </time>
