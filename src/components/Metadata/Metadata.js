@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { categoryPathBySlug } from 'lib/categories';
-import { authorPathByName } from 'lib/users';
+// import { authorPathByName } from 'lib/users';
 import { formatDate } from 'lib/datetime';
 import ClassName from 'models/classname';
 
@@ -12,7 +12,7 @@ const DEFAULT_METADATA_OPTIONS = {
   compactCategories: true,
 };
 
-const Metadata = ({ className, author, date, categories, options = DEFAULT_METADATA_OPTIONS, isSticky = false }) => {
+const Metadata = ({ className, date, categories, options = DEFAULT_METADATA_OPTIONS, isSticky = false }) => {
   const metadataClassName = new ClassName(styles.metadata);
 
   metadataClassName.addIf(className, className);
@@ -21,7 +21,7 @@ const Metadata = ({ className, author, date, categories, options = DEFAULT_METAD
 
   return (
     <ul className={metadataClassName.toString()}>
-      {author && (
+      {/* {author && (
         <li className={styles.metadataAuthor}>
           <address>
             {author.avatar && (
@@ -38,14 +38,7 @@ const Metadata = ({ className, author, date, categories, options = DEFAULT_METAD
             </Link>
           </address>
         </li>
-      )}
-      {date && (
-        <li>
-          <time pubdate="pubdate" dateTime={date}>
-            {formatDate(date)}
-          </time>
-        </li>
-      )}
+      )} */}
       {Array.isArray(categories) && categories[0] && (
         <li className={styles.metadataCategories}>
           {compactCategories && (
@@ -69,6 +62,13 @@ const Metadata = ({ className, author, date, categories, options = DEFAULT_METAD
               })}
             </ul>
           )}
+        </li>
+      )}
+      {date && (
+        <li>
+          <time pubdate="pubdate" dateTime={date}>
+            {formatDate(date)}
+          </time>
         </li>
       )}
       {isSticky && (

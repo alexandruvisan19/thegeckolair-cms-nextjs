@@ -2,29 +2,40 @@
 
 .postCard {
   position: relative;
-  padding: 1.2em;
+  padding: 0.9rem;
   color: inherit;
   text-align: left;
   text-decoration: none;
+  border-color: $color-black-050;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
 
-  & > a {
-    display: block;
+  & > div {
+    width: 100%;
+  }
+
+  a {
+    display: inline;
     color: inherit;
     text-decoration: none;
 
     &:hover {
-      h3 {
-        color: $color-primary;
-        text-decoration: underline;
-      }
+      text-decoration: none;
+    }
+  }
+
+  h3 {
+    color: $color-black-800;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
     }
   }
 }
 
 .postCardSticky {
-  border: solid 0.02em $color-gray-100;
-  border-radius: 1em;
-
+  display: flex;
   svg {
     position: absolute;
     top: 1.2em;
@@ -32,18 +43,48 @@
     font-size: 1.15em;
     color: $color-gray-300;
   }
+
+  & > div:last-child {
+    flex-basis: 33.5%;
+    padding: 0 1.5rem;
+  }
+
+  div:first-child {
+    margin: 0 !important;
+  }
 }
 
 .postCardTitle {
-  margin: 0 0 1em 0;
+  padding: 10px 5px 10px 0;
+  margin: 0 0 0.6em 0;
   font-size: 1.5em;
+  color: $color-black-800;
+  line-height: 1.15384615;
+  font-weight: 700;
+  background-image: linear-gradient(120deg, #ffd52b 0%, #fbebab 80%);
+  background-repeat: no-repeat;
+  background-size: 40% 0.1em;
+  background-position: 0 0%;
+  transition: background-size 0.2s ease-in;
+
+  &:hover {
+    background-size: 100% 100%;
+    border-radius: 7px;
+  }
 }
 
 .postCardContent {
-  font-size: 1.25em;
-  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-bottom: 1.5em;
 
   p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* number of lines to show */
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
     &:first-child {
       margin-top: 0;
     }
@@ -56,4 +97,16 @@
 
 .postCardMetadata {
   margin: -0.8em -0.8em 0.4em;
+}
+
+@media (max-width: 980px) {
+  .postCardSticky {
+    display: block;
+  }
+}
+
+@media (max-width: 980px) {
+  .postCard {
+    padding: 0.9rem 0;
+  }
 }

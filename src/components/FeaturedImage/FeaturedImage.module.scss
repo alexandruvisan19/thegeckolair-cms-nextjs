@@ -2,16 +2,23 @@
 @import "styles/settings/__settings";
 
 .featuredImage {
-  margin: 0 0 2em;
+  margin: 0 0 1em;
+  flex-basis: 100%;
 
   div {
     position: relative;
     width: 100%;
     height: 0;
-    padding-top: percentage(math.div(400, 960));
+    padding-top: percentage(math.div(500, 960));
+    box-shadow: $box-shadow-medium;
+    border-radius: 7px;
   }
 
   img {
+    height: -webkit-fill-available;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 7px;
     position: absolute;
     top: 0;
     right: 0;
@@ -19,6 +26,9 @@
     left: 0;
     border: 0;
     padding: 0;
-    margin: auto;
+  }
+
+  img:hover {
+    box-shadow: $box-shadow-large;
   }
 }

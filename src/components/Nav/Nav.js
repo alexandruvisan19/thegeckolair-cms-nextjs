@@ -12,6 +12,8 @@ import Section from 'components/Section';
 import styles from './Nav.module.scss';
 import NavListItem from 'components/NavListItem';
 
+import Logo from '../../../public/logo.svg';
+
 const SEARCH_VISIBLE = 'visible';
 const SEARCH_HIDDEN = 'hidden';
 
@@ -20,8 +22,11 @@ const Nav = () => {
 
   const [searchVisibility, setSearchVisibility] = useState(SEARCH_HIDDEN);
 
-  const { metadata = {}, menus } = useSite();
-  const { title } = metadata;
+  const {
+    // metadata = {}
+    menus,
+  } = useSite();
+  // const { title } = metadata;
 
   const navigation = findMenuByLocation(menus, [
     process.env.WORDPRESS_MENU_LOCATION_NAVIGATION,
@@ -181,7 +186,9 @@ const Nav = () => {
       <Section className={styles.navSection}>
         <p className={styles.navName}>
           <Link href="/">
-            <a>{title}</a>
+            <a>
+              <Logo />
+            </a>
           </Link>
         </p>
         <ul className={styles.navMenu}>

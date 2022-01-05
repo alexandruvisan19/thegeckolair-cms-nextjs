@@ -47,3 +47,175 @@ input {
   width: 0;
   height: 0;
 }
+
+.product-box {
+  margin: 45px 0 40px 0;
+  display: flex;
+  border: 1px solid #e2e2e2;
+  padding: 25px 25px 20px 25px !important;
+  border-radius: 10px;
+  position: relative;
+}
+.product-box img:hover {
+  opacity: 0.8;
+}
+.product-text {
+  margin-bottom: 1.5rem !important;
+  margin-top: 1rem !important;
+}
+.product-text a {
+  font-size: 1.6rem;
+  color: var(--blue);
+  text-decoration: none;
+  line-height: 1.2;
+}
+.product-button {
+  border-bottom: 4px solid #df8600;
+  background-color: var(--orange-yellow) !important;
+  border-radius: 4px;
+}
+.product-button a {
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 14px;
+  letter-spacing: 0.6px;
+  background-color: var(--orange-yellow) !important;
+  color: var(--white) !important;
+}
+.product-button:hover {
+  border-bottom: none;
+  border-top: 4px solid var(--orange-yellow);
+}
+.wp-block-media-text .wp-block-media-text__media {
+  order: 1;
+  flex-grow: 1;
+}
+.wp-block-media-text .wp-block-media-text__content {
+  padding: 0 5% 0% 0%;
+  flex-grow: 1;
+}
+.wp-block-button__link {
+  font-size: 0.9em;
+}
+.affiliate-text {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #666666b5;
+  position: relative;
+  top: 15px;
+  margin-bottom: 1rem !important;
+}
+.top-pick {
+  position: absolute;
+  top: -18px;
+  left: -10px;
+  display: inline-block;
+  background-color: #4381b8;
+  color: var(--white);
+  z-index: 500;
+  padding: 10px 15px;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 700;
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.14);
+}
+.top-pick::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: -10px;
+  bottom: -7px;
+  border-color: transparent #2368a4 transparent transparent;
+  border-style: inset solid inset inset;
+  border-width: 0 10px 7px;
+  filter: brightness(50%);
+}
+.product-box p {
+  margin-bottom: 1.3rem !important;
+}
+
+.product-box {
+  margin: 45px 0 40px 0;
+  display: flex;
+  border: 1px solid #e2e2e2;
+  padding: 25px 25px 20px 25px !important;
+  border-radius: 10px;
+  position: relative;
+}
+.product-box img:hover {
+  opacity: 0.8;
+}
+.product-text {
+  margin-bottom: 1.5rem !important;
+  margin-top: 1rem !important;
+}
+.product-text a {
+  font-size: 1.6rem;
+  color: var(--blue);
+  text-decoration: none;
+  line-height: 1.2;
+}
+.product-button {
+  border-bottom: 4px solid #df8600;
+  background-color: var(--orange-yellow) !important;
+  border-radius: 4px;
+}
+.product-button a {
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 14px;
+  letter-spacing: 0.6px;
+  background-color: var(--orange-yellow) !important;
+  color: var(--white) !important;
+}
+.product-button:hover {
+  border-bottom: none;
+  border-top: 4px solid var(--orange-yellow);
+}
+.wp-block-media-text .wp-block-media-text__media {
+  order: 1;
+  flex-grow: 1;
+}
+.wp-block-media-text .wp-block-media-text__content {
+  padding: 0 5% 0% 0%;
+  flex-grow: 1;
+}
+.wp-block-button__link {
+  font-size: 0.9em;
+}
+.affiliate-text {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #666666b5;
+  position: relative;
+  top: 15px;
+  margin-bottom: 1rem !important;
+}
+.top-pick {
+  position: absolute;
+  top: -18px;
+  left: -10px;
+  display: inline-block;
+  background-color: #4381b8;
+  color: var(--white);
+  z-index: 500;
+  padding: 10px 15px;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 700;
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.14);
+}
+.top-pick::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: -10px;
+  bottom: -7px;
+  border-color: transparent #2368a4 transparent transparent;
+  border-style: inset solid inset inset;
+  border-width: 0 10px 7px;
+  filter: brightness(50%);
+}
+.product-box p {
+  margin-bottom: 1.3rem !important;
+}

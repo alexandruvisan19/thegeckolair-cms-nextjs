@@ -16,7 +16,15 @@
   }
 
   & > li {
-    margin: 0.8em;
+    margin: 0.8em 0.8em 0 0.8em;
+  }
+
+  li:last-child {
+    color: $color-black-300;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.76rem;
+    padding: 5px;
   }
 
   p {
@@ -66,6 +74,23 @@
       &:after {
         content: none;
       }
+    }
+  }
+  p {
+    font-size: 0.7rem;
+    color: #cf7c00;
+    background-color: #ffe8c6;
+    padding: 1.5px 5px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #fed8a0;
+    }
+  }
+  a {
+    &:hover {
+      text-decoration: none !important;
+      color: #ff9900;
     }
   }
 }
