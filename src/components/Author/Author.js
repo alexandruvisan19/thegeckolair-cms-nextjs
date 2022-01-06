@@ -7,11 +7,13 @@ import styles from './Author.module.scss';
 
 const Author = ({ className, author }) => {
   const metadataClassName = new ClassName(styles.author);
+  const authorClassName = new ClassName(styles.authorCardContent);
 
   metadataClassName.addIf(className, className);
+  authorClassName.addIf(className, className);
 
   return (
-    <div>
+    <div className={styles.authorCardContent}>
       {author && (
         <span className={styles.author}>
           <address>

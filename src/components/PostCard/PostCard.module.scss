@@ -47,11 +47,15 @@
 
   & > div:last-child {
     flex-basis: 33.5%;
-    padding: 0 0 0 0.6rem;
+    padding: 0 0 0 1.8rem;
   }
 
   div:first-child {
     margin: 0 !important;
+  }
+
+  figure {
+    margin: 0 0 1rem 0;
   }
 }
 
@@ -75,11 +79,6 @@
 
   p {
     overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 4; /* number of lines to show */
-    line-clamp: 4;
-    -webkit-box-orient: vertical;
     &:first-child {
       margin-top: 0;
     }

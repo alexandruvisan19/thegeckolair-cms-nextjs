@@ -211,7 +211,7 @@ const Nav = () => {
                 value={query || ''}
                 onChange={handleOnSearch}
                 autoComplete="off"
-                placeholder="Search..."
+                placeholder="What are you looking for?"
                 required
               />
               <div className={styles.navSearchResults}>

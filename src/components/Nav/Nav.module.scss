@@ -75,6 +75,7 @@
 
   input {
     font-size: 0.845em;
+    border-radius: 7px;
   }
 
   button {
@@ -109,13 +110,11 @@
   display: none;
   position: absolute;
   top: 100%;
-  right: 0;
-  width: 100vw;
+  width: 140%;
   background-color: white;
   padding: 1.5em;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
   border-top: solid 5px $color-primary;
-  margin-right: -1rem;
   z-index: 999;
 
   @media (min-width: 480px) {
