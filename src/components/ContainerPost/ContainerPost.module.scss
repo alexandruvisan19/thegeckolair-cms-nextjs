@@ -1,7 +1,9 @@
 @import "styles/settings/__settings";
 
-.content {
-  max-width: 45rem;
+.containerPost {
+  display: flex;
+  flex-direction: row-reverse;
+  max-width: 70rem;
   margin: 0 auto;
   font-size: 1.2rem;
 

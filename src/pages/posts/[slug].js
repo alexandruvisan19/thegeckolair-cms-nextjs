@@ -1,25 +1,30 @@
 import Link from 'next/link';
 import { Helmet } from 'react-helmet';
 
-import { getPostBySlug, getAllPosts, getRelatedPosts, postPathBySlug } from 'lib/posts';
+import { getPostBySlug, getAllPosts, getRelatedPosts, postPathBySlug, sanitizeExcerpt } from 'lib/posts';
 import { categoryPathBySlug } from 'lib/categories';
 import { formatDate } from 'lib/datetime';
 import { ArticleJsonLd } from 'lib/json-ld';
 import { helmetSettingsFromMetadata } from 'lib/site';
 import useSite from 'hooks/use-site';
 import usePageMetadata from 'hooks/use-page-metadata';
+import { useScrollIndicator } from 'hooks/react-use-scroll-indicator.ts';
 
 import Layout from 'components/Layout';
-import Header from 'components/Header';
+// import Header from 'components/Header';
+import HeaderPost from 'components/HeaderPost';
 import Section from 'components/Section';
 import Container from 'components/Container';
+// import ContainerPost from 'components/ContainerPost';
 import Content from 'components/Content';
 import Metadata from 'components/Metadata';
-// import FeaturedImage from 'components/FeaturedImage';
+import Author from 'components/Author';
+import FeaturedImage from 'components/FeaturedImage';
 
 import styles from 'styles/pages/Post.module.scss';
 
 export default function Post({ post, socialImage, relatedPosts }) {
+  const [state] = useScrollIndicator({ onElement: true });
   const {
     title,
     metaTitle,
@@ -29,8 +34,9 @@ export default function Post({ post, socialImage, relatedPosts }) {
     author,
     categories,
     modified,
-    // featuredImage,
+    featuredImage,
     isSticky = false,
+    excerpt,
   } = post;
 
   const { metadata: siteMetadata = {}, homepage } = useSite();
@@ -67,39 +73,51 @@ export default function Post({ post, socialImage, relatedPosts }) {
   const helmetSettings = helmetSettingsFromMetadata(metadata);
 
   return (
-    <Layout>
+    <Layout procentScroll={state}>
       <Helmet {...helmetSettings} />
 
       <ArticleJsonLd post={post} siteTitle={siteMetadata.title} />
 
-      <Header>
-        {/* {featuredImage && (
+      <HeaderPost>
+        {featuredImage && (
           <FeaturedImage
             {...featuredImage}
             src={featuredImage.sourceUrl}
             dangerouslySetInnerHTML={featuredImage.caption}
           />
-        )} */}
-        <h1
-          className={styles.title}
-          dangerouslySetInnerHTML={{
-            __html: title,
-          }}
-        />
-        <Metadata
-          className={styles.postMetadata}
-          date={date}
-          author={author}
-          categories={categories}
-          options={metadataOptions}
-          isSticky={isSticky}
-        />
-      </Header>
+        )}
+        <div>
+          <Metadata
+            className={styles.postMetadata}
+            date={date}
+            author={author}
+            categories={categories}
+            options={metadataOptions}
+            isSticky={isSticky}
+          />
+          <h1
+            className={styles.title}
+            dangerouslySetInnerHTML={{
+              __html: title,
+            }}
+          />
+          {excerpt && (
+            <div
+              className={styles.postCardContent}
+              dangerouslySetInnerHTML={{
+                __html: sanitizeExcerpt(excerpt),
+              }}
+            />
+          )}
+          <Author className={styles.postCardMetadata} author={author} />
+        </div>
+      </HeaderPost>
 
       <Content>
         <Section>
           <Container>
             <div
+              ref={state.targetElement}
               className={styles.content}
               dangerouslySetInnerHTML={{
                 __html: content,

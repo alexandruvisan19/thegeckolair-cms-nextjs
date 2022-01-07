@@ -2,11 +2,12 @@
 
 @import "styles/components/_container";
 
-.header {
-  padding: 130px 30px;
+.headerPost {
+  padding: 100px 30px 75px 30px;
   color: #fff;
   position: relative;
   overflow: hidden;
+  margin: 0 auto;
 
   &::before {
     content: "";
@@ -21,14 +22,38 @@
     background-attachment: fixed;
   }
 
-  h1 {
-    margin: 0;
-    line-height: 1.15;
-    font-size: 4rem;
-    text-align: center;
+  figure {
+    padding-left: 30px;
+  }
+
+  div {
+    padding-right: 30px;
+    font-size: 0.7rem;
+
+    ul > li {
+      text-align: left;
+      justify-content: left !important;
+    }
+
+    h1 {
+      margin: 0;
+      padding-top: 0.6rem;
+      line-height: 1.15;
+      font-size: 2.5rem;
+      text-align: left;
+      background-image: linear-gradient(120deg, #ffa419 0%, #ffcc7e 80%);
+      background-repeat: no-repeat;
+      background-size: 30% 0.1em;
+      background-position: 0 0%;
+    }
+
+    p {
+      margin: 20px 0 !important;
+      font-size: 0.9rem;
+    }
 
     @media (min-width: 480px) {
-      font-size: 3rem;
+      font-size: 1rem;
     }
 
     a {
@@ -51,10 +76,5 @@
     &:last-child {
       margin-bottom: 0;
     }
-  }
-
-  figure {
-    margin-left: -2rem;
-    margin-right: -2rem;
   }
 }

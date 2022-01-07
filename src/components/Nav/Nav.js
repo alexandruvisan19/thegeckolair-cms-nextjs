@@ -12,12 +12,12 @@ import Section from 'components/Section';
 import styles from './Nav.module.scss';
 import NavListItem from 'components/NavListItem';
 
-import Logo from '../../../public/logo.svg';
+// import Logo from '../../../public/logo.svg';
 
 const SEARCH_VISIBLE = 'visible';
 const SEARCH_HIDDEN = 'hidden';
 
-const Nav = () => {
+const Nav = ({ procentScroll }) => {
   const formRef = useRef();
 
   const [searchVisibility, setSearchVisibility] = useState(SEARCH_HIDDEN);
@@ -186,9 +186,7 @@ const Nav = () => {
       <Section className={styles.navSection}>
         <p className={styles.navName}>
           <Link href="/">
-            <a>
-              <Logo />
-            </a>
+            <a>TheBeardieDen</a>
           </Link>
         </p>
         <ul className={styles.navMenu}>
@@ -238,6 +236,11 @@ const Nav = () => {
           )}
         </div>
       </Section>
+      {procentScroll && (
+        <div className={styles.progressMainWrapper}>
+          <div className={styles.progressMainStyle} style={{ width: `${procentScroll.value}%` }}></div>
+        </div>
+      )}
     </nav>
   );
 };

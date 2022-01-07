@@ -14,10 +14,6 @@
     margin: 0;
   }
 
-  // & > li {
-  //   margin: 0 0 0 0.9rem;
-  // }
-
   p {
     margin: 0;
   }
@@ -53,11 +49,13 @@
 }
 
 .metadataCategories {
+  margin-right: 15px;
+
   li {
     display: inline-block;
 
     &:after {
-      content: ", ";
+      // content: ", ";
       margin-right: 0.4em;
     }
 
@@ -75,10 +73,6 @@
     padding: 0 5px;
     border-radius: 5px;
 
-    &:first-child {
-      margin-right: 12px;
-    }
-
     &:hover {
       background-color: #fed8a0;
     }
@@ -87,6 +81,24 @@
     &:hover {
       text-decoration: none !important;
       color: #ff9900;
+    }
+  }
+
+  ul > li {
+    font-size: 0.65rem;
+    color: #cf7c00;
+    background-color: #ffe8c6;
+    padding: 3px;
+    border-radius: 5px;
+    margin: 0 5px 0 0;
+
+    a {
+      color: #cf7c00;
+    }
+
+    &:hover {
+      color: #ff9900;
+      background-color: #fed8a0;
     }
   }
 }
@@ -101,5 +113,6 @@
 
 .metadataSticky {
   font-size: 1.15em;
-  color: $color-gray-300;
+  color: #ff9900;
+  margin-left: 10px;
 }

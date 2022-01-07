@@ -2,8 +2,26 @@
 
 .nav {
   width: 100%;
-  border-bottom: 1px solid $color-gray-100;
-  padding: 0 1rem;
+  box-shadow: rgb(51 59 81 / 5%) 0px 15px 30px;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1000000;
+}
+
+.progressMainWrapper {
+  background-color: #fff;
+  height: 5px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.progressMainStyle {
+  height: 4px;
+  background: linear-gradient(120deg, #ffcc7e 0%, #ffa419 90%);
 }
 
 .navSection {
@@ -202,7 +220,7 @@
   a {
     display: block;
     text-decoration: none;
-    color: $color-gray-600;
+    color: $color-black-800;
     font-size: 1.1em;
     padding: 0.5em;
 
