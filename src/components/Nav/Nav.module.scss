@@ -6,12 +6,12 @@
   position: sticky;
   top: 0;
   background-color: #fff;
-  z-index: 1000000;
+  z-index: 100;
 }
 
 .progressMainWrapper {
   background-color: #fff;
-  height: 5px;
+  height: 4px;
   position: sticky;
   top: 0;
   left: 0;
@@ -22,6 +22,7 @@
 .progressMainStyle {
   height: 4px;
   background: linear-gradient(120deg, #ffcc7e 0%, #ffa419 90%);
+  transition: all 0.33s ease-out;
 }
 
 .navSection {
@@ -176,10 +177,15 @@
 .navMenu {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
   flex-grow: 0;
   list-style: none;
   padding: 0;
   margin: 0;
+
+  @media screen and (max-width: 980px) {
+    flex-wrap: wrap;
+  }
 
   li {
     position: relative;

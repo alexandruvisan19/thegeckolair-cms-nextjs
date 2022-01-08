@@ -1,9 +1,5 @@
-import { useRef, useState, useEffect, useMemo, useCallback } from "react";
-import {
-  ScrollIndicatorHook,
-  ScrollIndicatorState,
-  ScrollIndicatorApi,
-} from "./scrollIndicatorData/types.ts";
+import { useRef, useState, useEffect, useMemo, useCallback } from 'react';
+import { ScrollIndicatorHook, ScrollIndicatorState, ScrollIndicatorApi } from './scrollIndicatorData/types.ts';
 
 import {
   VALUE_MIN,
@@ -12,18 +8,12 @@ import {
   INITIAL_ON_ELEMENT,
   INITIAL_PRECISION,
   INITIAL_VALUE,
-} from "./scrollIndicatorData/constants.ts";
+} from './scrollIndicatorData/constants.ts';
 
 export const useScrollIndicator: ScrollIndicatorHook = (options = {}) => {
-  const {
-    onElement = INITIAL_ON_ELEMENT,
-    precision = INITIAL_PRECISION,
-    initialValue = INITIAL_VALUE,
-  } = options;
+  const { onElement = INITIAL_ON_ELEMENT, precision = INITIAL_PRECISION, initialValue = INITIAL_VALUE } = options;
 
-  const roundFactor = useMemo(() => Math.pow(PRECISION_BASE, precision), [
-    precision,
-  ]);
+  const roundFactor = useMemo(() => Math.pow(PRECISION_BASE, precision), [precision]);
 
   const targetElement = useRef<any>(null);
   const [value, setValue] = useState(initialValue);
@@ -33,7 +23,7 @@ export const useScrollIndicator: ScrollIndicatorHook = (options = {}) => {
       const value = Math.round(scrolled * roundFactor) / roundFactor;
       setValue(Math.max(Math.min(value, VALUE_MAX), VALUE_MIN));
     },
-    [roundFactor],
+    [roundFactor]
   );
 
   const handleElementScroll = useCallback(() => {
@@ -44,19 +34,15 @@ export const useScrollIndicator: ScrollIndicatorHook = (options = {}) => {
   const handlePageScroll = useCallback(() => {
     const { scrollHeight, clientHeight, scrollTop } = document.documentElement;
     const winScroll = document.body.scrollTop || scrollTop;
-    console.log(winScroll)
     handleValue((winScroll / (scrollHeight - clientHeight)) * VALUE_MAX);
   }, []);
 
-  const listener = useMemo(
-    () => (onElement ? handleElementScroll : handlePageScroll),
-    [onElement],
-  );
+  const listener = useMemo(() => (onElement ? handleElementScroll : handlePageScroll), [onElement]);
 
   useEffect(() => {
-    window.addEventListener("scroll", listener);
+    window.addEventListener('scroll', listener);
     return function () {
-      window.removeEventListener("scroll", listener);
+      window.removeEventListener('scroll', listener);
     };
   }, []);
 
@@ -70,7 +56,7 @@ export const useScrollIndicator: ScrollIndicatorHook = (options = {}) => {
       activeListener: listener,
       setScrollState: handleValue,
     }),
-    [listener, handleValue],
+    [listener, handleValue]
   );
 
   return [state, api];

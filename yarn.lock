@@ -4915,6 +4915,16 @@ type-fest@^0.7.1:
   resolved "https://registry.npmjs.org/type-fest/-/type-fest-0.7.1.tgz"
   integrity sha512-Ne2YiiGN8bmrmJJEuTWTLJR32nh/JdL1+PSicowtNb0WFpn59GK8/lfD61bVtzguz7b3PBt74nxpv/Pw5po5Rg==
 
+typeface-inter@^3.18.1:
+  version "3.18.1"
+  resolved "https://registry.yarnpkg.com/typeface-inter/-/typeface-inter-3.18.1.tgz#24cccdf29923f318589783997be20a662cd3ab9c"
+  integrity sha512-c+TBanYFCvmg3j5vPk+zxK4ocMZbPxMEmjnwG7rPQoV87xvQ6b07VbAOC0Va0XBbbZCGw6cWNeFuLeg1YQru3Q==
+
+typeface-montserrat@^1.1.13:
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/typeface-montserrat/-/typeface-montserrat-1.1.13.tgz#2a16729c174dd1a8c3fec05a851b7725412606cc"
+  integrity sha512-Pklkyj0e+K+6I/t0M6JBDBphpfJkF1k+3qd8qDnp9aVtCC7oGBQWTAcL6+5eArfGe7h73uPwyal73hEkf9YCUA==
+
 unbox-primitive@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/unbox-primitive/-/unbox-primitive-1.0.1.tgz"

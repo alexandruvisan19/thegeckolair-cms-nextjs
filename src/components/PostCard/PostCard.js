@@ -33,8 +33,6 @@ const PostCard = ({ post, options = {} }) => {
     postCardStyle = `${postCardStyle} ${styles.postCardSticky}`;
   }
 
-  console.log(metadata.author);
-
   return (
     <div className={postCardStyle}>
       {featuredImage && (
