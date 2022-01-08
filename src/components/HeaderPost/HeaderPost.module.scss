@@ -36,7 +36,6 @@
   }
 
   div {
-    font-size: 0.7rem;
     flex-basis: 100%;
 
     ul > li {
@@ -58,7 +57,7 @@
 
     p {
       margin: 20px 0 !important;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
 
     @media (min-width: 480px) {
@@ -69,7 +68,7 @@
       &:hover,
       &:focus,
       &:active {
-        text-decoration: underline;
+        text-decoration: none;
       }
     }
 

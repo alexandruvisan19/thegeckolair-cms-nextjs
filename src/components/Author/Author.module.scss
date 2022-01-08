@@ -1,19 +1,41 @@
 .author {
   a {
     margin-left: 0.2em;
+    transition-duration: 0.3s;
+    transform: perspective(1px) translateZ(0);
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0.15em;
+      background-color: #0070f3;
+      opacity: 0;
+      transition: opacity 300ms, transform 300ms;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      opacity: 1;
+      transform: translate3d(0, 0.2em, 0);
+    }
   }
 
   address {
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     font-style: normal;
   }
 
   img {
-    width: 1.4em;
+    width: 2.4em;
     height: auto;
     border-radius: 50%;
     margin-right: 0.5em;
+    border: 2px solid #cf7c00;
   }
 }
 
