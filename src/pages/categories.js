@@ -43,11 +43,21 @@ export default function Categories({ categories }) {
           <ul className={styles.categories}>
             {categories.map((category) => {
               return (
-                <li key={category.slug}>
-                  <Link href={categoryPathBySlug(category.slug)}>
-                    <a>{category.name}</a>
-                  </Link>
-                </li>
+                category.count && (
+                  <li key={category.slug}>
+                    <div className={styles.count}>
+                      {category.count > 1 ? `${category.count} articles` : `${category.count} article`}
+                    </div>
+                    <Link href={categoryPathBySlug(category.slug)}>
+                      <a>{category.name}</a>
+                    </Link>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: category.description,
+                      }}
+                    />
+                  </li>
+                )
               );
             })}
           </ul>

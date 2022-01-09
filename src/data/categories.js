@@ -10,6 +10,12 @@ export const QUERY_ALL_CATEGORIES = gql`
           id
           name
           slug
+          count
+          children {
+            nodes {
+              count
+            }
+          }
         }
       }
     }
@@ -24,6 +30,12 @@ export const QUERY_CATEGORY_BY_SLUG = gql`
       id
       name
       slug
+      count
+      children {
+        nodes {
+          count
+        }
+      }
     }
   }
 `;

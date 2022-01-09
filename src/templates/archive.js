@@ -8,7 +8,7 @@ import Layout from 'components/Layout';
 import Header from 'components/Header';
 import Section from 'components/Section';
 import Container from 'components/Container';
-import SectionTitle from 'components/SectionTitle';
+// import SectionTitle from 'components/SectionTitle';
 import PostCard from 'components/PostCard';
 import Pagination from 'components/Pagination/Pagination';
 
@@ -57,7 +57,7 @@ export default function TemplateArchive({
 
       <Section>
         <Container>
-          <SectionTitle>Posts</SectionTitle>
+          {/* <SectionTitle>Posts</SectionTitle> */}
           {Array.isArray(posts) && (
             <>
               <ul className={styles.posts}>
