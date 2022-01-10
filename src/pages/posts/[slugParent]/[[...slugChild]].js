@@ -109,7 +109,7 @@ export async function getStaticProps({ params = {} } = {}) {
   // We can use the URI to look up our page and subsequently its ID, so
   // we can first contruct our URI from the page params
 
-  let pageUri = `/${slugParent}/`;
+  let pageUri = `/posts/${slugParent}/`;
 
   // We only want to apply deeper paths to the URI if we actually have
   // existing children

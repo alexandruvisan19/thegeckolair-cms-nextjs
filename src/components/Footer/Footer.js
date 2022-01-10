@@ -42,11 +42,9 @@ const Footer = () => {
               </li>
               {hasRecentPosts && (
                 <li>
-                  <Link href="/posts/">
-                    <a className={styles.footerMenuTitle}>
-                      <strong>Recent Posts</strong>
-                    </a>
-                  </Link>
+                  <p className={styles.footerMenuTitle}>
+                    <strong>Recent Posts</strong>
+                  </p>
                   <ul className={styles.footerMenuItems}>
                     {recentPosts.map((post) => {
                       const { id, slug, title } = post;

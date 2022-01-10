@@ -66,7 +66,7 @@ export async function getStaticProps() {
       posts,
       pagination: {
         ...pagination,
-        basePath: '/posts',
+        basePath: '',
       },
     },
   };

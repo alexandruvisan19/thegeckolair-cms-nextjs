@@ -24,7 +24,7 @@ export async function getStaticProps({ params = {} } = {}) {
       posts,
       pagination: {
         ...pagination,
-        basePath: '/posts',
+        basePath: '/',
       },
     },
   };
