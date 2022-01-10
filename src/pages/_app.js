@@ -1,4 +1,7 @@
 import NextApp from 'next/app';
+import Script from 'next/script';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 import { SiteContext, useSiteContext } from 'hooks/use-site';
 import { SearchProvider } from 'hooks/use-search';
@@ -7,6 +10,7 @@ import { getSiteMetadata } from 'lib/site';
 import { getRecentPosts } from 'lib/posts';
 import { getTopLevelPages } from 'lib/pages';
 import { getCategories } from 'lib/categories';
+import * as gtag from '../lib/gtag';
 import NextNProgress from 'nextjs-progressbar';
 import { getAllMenus, createMenuFromPages, MENU_LOCATION_NAVIGATION_DEFAULT } from 'lib/menus';
 
@@ -21,13 +25,44 @@ function App({ Component, pageProps = {}, metadata, recentPosts, categories, men
     menus,
   });
 
+  const router = useRouter();
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url);
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
-    <SiteContext.Provider value={site}>
-      <SearchProvider>
-        <NextNProgress height={5} color={variables.progressbarColor} />
-        <Component {...pageProps} />
-      </SearchProvider>
-    </SiteContext.Provider>
+    <>
+      <Script
+        strategy="afterInteractive"
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}"
+      />
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', { page_path: window.location.pathname });
+        `,
+        }}
+      />
+      <SiteContext.Provider value={site}>
+        <SearchProvider>
+          <NextNProgress height={5} color={variables.progressbarColor} />
+          <Component {...pageProps} />
+        </SearchProvider>
+      </SiteContext.Provider>
+    </>
   );
 }
 
