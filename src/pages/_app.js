@@ -2,6 +2,7 @@ import NextApp from 'next/app';
 import Script from 'next/script';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import * as gtag from '../lib/gtag';
 
 import { SiteContext, useSiteContext } from 'hooks/use-site';
 import { SearchProvider } from 'hooks/use-search';
@@ -10,7 +11,6 @@ import { getSiteMetadata } from 'lib/site';
 import { getRecentPosts } from 'lib/posts';
 import { getTopLevelPages } from 'lib/pages';
 import { getCategories } from 'lib/categories';
-import * as gtag from '../lib/gtag';
 import NextNProgress from 'nextjs-progressbar';
 import { getAllMenus, createMenuFromPages, MENU_LOCATION_NAVIGATION_DEFAULT } from 'lib/menus';
 
@@ -38,22 +38,19 @@ function App({ Component, pageProps = {}, metadata, recentPosts, categories, men
 
   return (
     <>
-      <Script
-        strategy="afterInteractive"
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}"
-      />
+      <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`} />
       <Script
         id="gtag-init"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', { page_path: window.location.pathname });
-        `,
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gtag.GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
         }}
       />
       <SiteContext.Provider value={site}>
