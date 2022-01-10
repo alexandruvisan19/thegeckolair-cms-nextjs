@@ -42,7 +42,6 @@ export default function Categories({ categories }) {
           <SectionTitle>All Categories</SectionTitle>
           <ul className={styles.categories}>
             {categories.map((category) => {
-              console.log(categories);
               return (
                 category.count && (
                   <li key={category.slug}>
