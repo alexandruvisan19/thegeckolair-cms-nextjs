@@ -2,15 +2,16 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { FaSearch } from 'react-icons/fa';
 
-import useSite from 'hooks/use-site';
+// import useSite from 'hooks/use-site';
 import useSearch, { SEARCH_STATE_LOADED } from 'hooks/use-search';
 import { postPathBySlug } from 'lib/posts';
-import { findMenuByLocation, MENU_LOCATION_NAVIGATION_DEFAULT } from 'lib/menus';
+// import { findMenuByLocation, MENU_LOCATION_NAVIGATION_DEFAULT } from 'lib/menus';
+// import { categoryPathBySlug } from 'lib/categories';
 
 import Section from 'components/Section';
 
 import styles from './Nav.module.scss';
-import NavListItem from 'components/NavListItem';
+// import NavListItem from 'components/NavListItem';
 
 // import Logo from '../../../public/logo.svg';
 
@@ -22,16 +23,19 @@ const Nav = ({ procentScroll }) => {
 
   const [searchVisibility, setSearchVisibility] = useState(SEARCH_HIDDEN);
 
-  const {
-    // metadata = {}
-    menus,
-  } = useSite();
+  // const {
+  //   metadata = {}
+  //   menus,
+  //   categories = [],
+  // } = useSite();
   // const { title } = metadata;
 
-  const navigation = findMenuByLocation(menus, [
-    process.env.WORDPRESS_MENU_LOCATION_NAVIGATION,
-    MENU_LOCATION_NAVIGATION_DEFAULT,
-  ]);
+  // const hasRecentCategories = Array.isArray(categories) && categories.length > 0;
+
+  // const navigation = findMenuByLocation(menus, [
+  //   process.env.WORDPRESS_MENU_LOCATION_NAVIGATION,
+  //   MENU_LOCATION_NAVIGATION_DEFAULT,
+  // ]);
 
   const { query, results, search, clearSearch, state } = useSearch({
     maxResults: 5,
@@ -189,11 +193,16 @@ const Nav = ({ procentScroll }) => {
             <a>TheBeardieDen</a>
           </Link>
         </p>
-        <ul className={styles.navMenu}>
+        <Link href="/categories/">
+          <a className={styles.footerMenuTitle}>
+            <strong>Categories</strong>
+          </a>
+        </Link>
+        {/* <ul className={styles.navMenu}>
           {navigation?.map((listItem) => {
             return <NavListItem key={listItem.id} className={styles.navSubMenu} item={listItem} />;
           })}
-        </ul>
+        </ul> */}
         <div className={styles.navSearch}>
           {searchVisibility === SEARCH_HIDDEN && (
             <button onClick={handleOnToggleSearch} disabled={!searchIsLoaded}>
