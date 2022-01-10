@@ -24,7 +24,7 @@ import FeaturedImage from 'components/FeaturedImage';
 import styles from 'styles/pages/Post.module.scss';
 
 export default function Post({ post, socialImage, relatedPosts }) {
-  const [state] = useScrollIndicator({ onElement: true });
+  const [state] = useScrollIndicator();
   const {
     title,
     metaTitle,
@@ -117,7 +117,6 @@ export default function Post({ post, socialImage, relatedPosts }) {
         <Section>
           <Container>
             <div
-              ref={state.targetElement}
               className={styles.content}
               dangerouslySetInnerHTML={{
                 __html: content,

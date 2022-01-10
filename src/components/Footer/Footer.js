@@ -14,7 +14,7 @@ import styles from './Footer.module.scss';
 const Footer = () => {
   const { metadata = {}, recentPosts = [], categories = [], menus } = useSite();
   const { title } = metadata;
-
+  // console.log(categories)
   const hasRecentPosts = Array.isArray(recentPosts) && recentPosts.length > 0;
   const hasRecentCategories = Array.isArray(categories) && categories.length > 0;
   const hasMenu = hasRecentPosts || hasRecentCategories;
@@ -70,6 +70,7 @@ const Footer = () => {
                   </Link>
                   <ul className={styles.footerMenuItems}>
                     {categories.map((category) => {
+                      if (category.count < 1) return;
                       const { id, slug, name } = category;
                       return (
                         <li key={id}>
@@ -108,6 +109,10 @@ const Footer = () => {
         <Container>
           <p>
             &copy; {new Date().getFullYear()} {title}
+          </p>
+          <p>
+            We are a participant in the Amazon Services LLC Associates Program, an affiliate advertising program
+            designed to provide a means for us to earn fees by linking to Amazon.com and affiliated sites.
           </p>
         </Container>
       </Section>

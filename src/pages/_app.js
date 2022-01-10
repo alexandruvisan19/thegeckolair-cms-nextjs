@@ -24,7 +24,7 @@ function App({ Component, pageProps = {}, metadata, recentPosts, categories, men
   return (
     <SiteContext.Provider value={site}>
       <SearchProvider>
-        <NextNProgress height={5} color={variables.progressbarColor} options={{ easing: 'ease', speed: 500 }} />
+        <NextNProgress height={5} color={variables.progressbarColor} />
         <Component {...pageProps} />
       </SearchProvider>
     </SiteContext.Provider>
@@ -39,7 +39,7 @@ App.getInitialProps = async function (appContext) {
   });
 
   const { categories } = await getCategories({
-    count: 5,
+    count: 10,
   });
 
   const { menus } = await getAllMenus();

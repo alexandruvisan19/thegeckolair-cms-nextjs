@@ -11,11 +11,6 @@ export const QUERY_ALL_CATEGORIES = gql`
           name
           slug
           count
-          children {
-            nodes {
-              count
-            }
-          }
         }
       }
     }
@@ -31,11 +26,6 @@ export const QUERY_CATEGORY_BY_SLUG = gql`
       name
       slug
       count
-      children {
-        nodes {
-          count
-        }
-      }
     }
   }
 `;
