@@ -3,7 +3,7 @@ CONTRIBUTING.md
 LICENSE
 README.md
 
-# dependencies
+#dependencies
 /node_modules
 /.pnp
 .pnp.js
