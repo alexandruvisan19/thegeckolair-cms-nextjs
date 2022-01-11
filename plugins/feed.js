@@ -15,7 +15,6 @@ module.exports = function feed(nextConfig = {}) {
   };
 
   const { WORDPRESS_GRAPHQL_ENDPOINT } = env;
-  console.log(env);
 
   return Object.assign({}, nextConfig, {
     webpack(config, options) {

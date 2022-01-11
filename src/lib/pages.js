@@ -7,7 +7,7 @@ import { QUERY_ALL_PAGES, QUERY_PAGE_BY_URI, QUERY_PAGE_SEO_BY_URI } from 'data/
  */
 
 export function pagePathBySlug(slug) {
-  return `${slug}`;
+  return `/${slug}`;
 }
 
 /**

@@ -24,7 +24,7 @@ export async function getStaticProps({ params = {} } = {}) {
       posts,
       pagination: {
         ...pagination,
-        basePath: '/',
+        basePath: '/posts',
       },
     },
   };
@@ -36,6 +36,7 @@ export async function getStaticPaths() {
   const paths = [...new Array(pagesCount)].map((_, i) => {
     return { params: { page: String(i + 1) } };
   });
+
   return {
     paths,
     fallback: false,

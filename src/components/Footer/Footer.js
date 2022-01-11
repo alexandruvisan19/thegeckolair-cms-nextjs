@@ -14,7 +14,7 @@ import styles from './Footer.module.scss';
 const Footer = () => {
   const { metadata = {}, recentPosts = [], categories = [], menus } = useSite();
   const { title } = metadata;
-  // console.log(categories)
+
   const hasRecentPosts = Array.isArray(recentPosts) && recentPosts.length > 0;
   const hasRecentCategories = Array.isArray(categories) && categories.length > 0;
   const hasMenu = hasRecentPosts || hasRecentCategories;
@@ -42,9 +42,11 @@ const Footer = () => {
               </li>
               {hasRecentPosts && (
                 <li>
-                  <p className={styles.footerMenuTitle}>
-                    <strong>Recent Posts</strong>
-                  </p>
+                  <Link href="/posts/">
+                    <a className={styles.footerMenuTitle}>
+                      <strong>Recent Posts</strong>
+                    </a>
+                  </Link>
                   <ul className={styles.footerMenuItems}>
                     {recentPosts.map((post) => {
                       const { id, slug, title } = post;
