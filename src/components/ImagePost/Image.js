@@ -1,26 +1,26 @@
 import ClassName from 'models/classname';
 
 import styles from './Image.module.scss';
+import Image from 'next/image';
 
-const Image = ({
+const ImagePost = ({
   children,
   className,
-  width = '100%',
-  height = 'auto',
+  width = '1200',
+  height = '630',
   src,
-  alt,
+  altText,
   srcSet,
   sizes,
   dangerouslySetInnerHTML,
 }) => {
   const imageClassName = new ClassName(styles.image);
-
   imageClassName.addIf(className, className);
 
   return (
     <figure className={imageClassName.toString()}>
       <div className={styles.featuredImageImg}>
-        <img width={width} height={height} src={src} alt={alt || ''} srcSet={srcSet} sizes={sizes} />
+        <Image width={width} height={height} src={src} alt={altText || ''} srcSet={srcSet} sizes={sizes} />
       </div>
       {children && <figcaption>{children}</figcaption>}
       {dangerouslySetInnerHTML && (
@@ -34,4 +34,4 @@ const Image = ({
   );
 };
 
-export default Image;
+export default ImagePost;
