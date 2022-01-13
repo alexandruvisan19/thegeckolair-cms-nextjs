@@ -13,8 +13,6 @@ import Section from 'components/Section';
 import styles from './Nav.module.scss';
 // import NavListItem from 'components/NavListItem';
 
-// import Logo from '../../../public/logo.svg';
-
 const SEARCH_VISIBLE = 'visible';
 const SEARCH_HIDDEN = 'hidden';
 
@@ -190,7 +188,7 @@ const Nav = ({ procentScroll }) => {
       <Section className={styles.navSection}>
         <p className={styles.navName}>
           <Link href="/">
-            <a>theBeardieDen</a>
+            <a>beardieden</a>
           </Link>
         </p>
         <div className={styles.navMenu}>

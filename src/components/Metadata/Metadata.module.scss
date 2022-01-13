@@ -66,35 +66,41 @@
   }
 
   a {
-    color: #cf7c00;
+    color: #242729;
     font-size: 0.75rem;
     background-color: #ffe8c6;
-    padding: 4px;
+    padding: 5px;
     border-radius: 5px;
     margin-right: 8px;
     text-decoration: none !important;
 
     &:hover {
+      color: #fff;
       text-decoration: none !important;
-      color: #503000;
-      background-color: #fed8a0;
+      background-color: #56a3ff;
+      transition-duration: 0.4s;
+    }
+
+    @media (max-width: 980px) {
+      font-size: 0.85rem;
+      padding: 7px;
     }
   }
 }
 
 .metadataDate {
   time {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 500;
     color: $color-black-300;
     text-transform: uppercase;
     letter-spacing: 0.11em;
-    font-size: 0.7rem;
     padding: 5px 0 0.3px 0;
+    font-weight: 600;
   }
 }
 
 .metadataSticky {
-  color: #ff9900;
+  color: #56a3ff;
   margin-left: 10px;
 }

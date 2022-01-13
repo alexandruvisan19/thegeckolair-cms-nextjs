@@ -1,17 +1,18 @@
 @import "styles/settings/__settings";
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap");
 
 .nav {
   width: 100%;
-  box-shadow: rgb(51 59 81 / 5%) 0px 15px 30px;
+  background-color: #fff5e9;
+  height: 65px;
   position: sticky;
   top: 0;
-  background-color: #fff;
   z-index: 100;
 }
 
 .progressMainWrapper {
-  background-color: #fff;
-  height: 4px;
+  background-color: #fff5e9;
+  // height: 4px;
   position: sticky;
   top: 0;
   left: 0;
@@ -21,7 +22,7 @@
 
 .progressMainStyle {
   height: 4px;
-  background: linear-gradient(120deg, #ffcc7e 0%, #ffa419 90%);
+  background: linear-gradient(120deg, #96c6ff 0%, #4398ff 90%);
   transition: all 0.33s ease-out;
 }
 
@@ -44,7 +45,6 @@
   flex-shrink: 0;
   flex-grow: 1;
   margin: 0.8em 0 0;
-  font-family: "Inter";
   justify-content: flex-start;
   margin-top: 0;
 
@@ -55,14 +55,16 @@
 
   a {
     color: #171a2c;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 600;
     padding: 0.5em;
     text-decoration: none;
     border-bottom: solid 2px transparent;
+    font-weight: 800;
 
     &:hover {
       color: $color-primary;
+      transition-duration: 0.4s;
     }
   }
 }
@@ -162,6 +164,7 @@
     @media (hover: hover) {
       &:hover {
         color: $color-primary;
+        transition-duration: 0.4s;
       }
     }
   }
@@ -196,6 +199,7 @@
     &:hover {
       & > a {
         color: $color-primary;
+        transition-duration: 0.4s;
       }
 
       > .navSubMenu {
@@ -226,6 +230,7 @@
     @media (hover: hover) {
       &:hover {
         color: $color-primary;
+        transition-duration: 0.4s;
       }
     }
   }

@@ -41,6 +41,7 @@ const PostCard = ({ post, options = {} }) => {
             <a>
               <FeaturedImage
                 {...featuredImage}
+                sticky={isSticky}
                 src={featuredImage.sourceUrl}
                 dangerouslySetInnerHTML={featuredImage.caption}
               />

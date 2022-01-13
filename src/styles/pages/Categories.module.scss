@@ -22,7 +22,6 @@
     margin: 1.5em 0;
     padding: 10px;
     position: relative;
-    background-color: #2e345a;
     border-radius: 8px;
     box-shadow: $box-shadow-medium;
     color: white;
@@ -38,7 +37,7 @@
       top: -18px;
       left: -10px;
       display: inline-block;
-      background-color: #9295ab;
+      background-color: #4f9fff;
       color: #fff;
       z-index: 10;
       padding: 10px 15px;
@@ -79,7 +78,7 @@
     font-size: 1.3rem;
     padding: 22px;
     border-radius: 0 0 8px 8px;
-    background-color: #9295ab;
+    background-color: #4f9fff;
     top: 85%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -88,8 +87,7 @@
 
     @media (hover: hover) {
       &:hover {
-        color: $color-primary;
-        text-decoration: underline;
+        color: #000;
       }
     }
   }

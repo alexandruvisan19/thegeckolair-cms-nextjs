@@ -13,14 +13,27 @@ const ImagePost = ({
   srcSet,
   sizes,
   dangerouslySetInnerHTML,
+  sticky,
 }) => {
   const imageClassName = new ClassName(styles.image);
   imageClassName.addIf(className, className);
-
   return (
     <figure className={imageClassName.toString()}>
       <div className={styles.featuredImageImg}>
-        <Image width={width} height={height} src={src} alt={altText || ''} srcSet={srcSet} sizes={sizes} />
+        {sticky ? (
+          <Image
+            width={width}
+            height={height}
+            src={src}
+            alt={altText || ''}
+            srcSet={srcSet}
+            sizes={sizes}
+            priority={true}
+            loading="eager"
+          />
+        ) : (
+          <Image width={width} height={height} src={src} alt={altText || ''} srcSet={srcSet} sizes={sizes} />
+        )}
       </div>
       {children && <figcaption>{children}</figcaption>}
       {dangerouslySetInnerHTML && (
