@@ -34,10 +34,6 @@ export default class MyDocument extends Document {
         <Head>
           {this.helmetHeadComponents}
           <link href="https://fonts.googleapis.com/css2?family=Inter&display=optional" rel="stylesheet" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=optional"
-            rel="stylesheet"
-          />
         </Head>
         <body {...this.helmetBodyAttrComponents}>
           <Main />
