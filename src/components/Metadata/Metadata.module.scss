@@ -68,8 +68,8 @@
   a {
     color: #242729;
     font-size: 0.75rem;
-    background-color: #ffe8c6;
-    padding: 5px;
+    background-color: #ffb256;
+    padding: 4px 6px;
     border-radius: 5px;
     margin-right: 8px;
     text-decoration: none !important;
@@ -83,7 +83,7 @@
 
     @media (max-width: 980px) {
       font-size: 0.85rem;
-      padding: 7px;
+      padding: 4px 6px;
     }
   }
 }

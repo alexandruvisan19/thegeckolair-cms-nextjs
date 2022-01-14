@@ -2,7 +2,11 @@
 
 .footer {
   width: 100%;
-  // box-shadow: rgb(100 100 111 / 30%) 0px 30px 60px;
+
+  @media screen and (max-width: 980px) {
+    background-color: #ffdaad;
+    box-shadow: rgb(100 100 111 / 30%) 0px 30px 60px;
+  }
 }
 
 .footerMenu {

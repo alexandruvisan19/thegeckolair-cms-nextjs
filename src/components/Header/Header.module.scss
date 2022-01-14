@@ -3,7 +3,7 @@
 @import "styles/components/_container";
 
 .header {
-  padding: 130px 30px;
+  padding: 7.5% 20%;
   color: #000;
   position: relative;
   overflow: hidden;
@@ -12,14 +12,19 @@
     padding: 3rem 2rem 1rem 2rem;
   }
 
+  div {
+    padding: 0;
+  }
+
   h1 {
     margin: 0;
     line-height: 1.15;
-    font-size: 3rem;
+    font-size: 2.2rem;
     text-align: center;
+    font-weight: 600;
 
     @media (max-width: 680px) {
-      font-size: 2.2rem;
+      font-size: 2rem;
     }
 
     a {
