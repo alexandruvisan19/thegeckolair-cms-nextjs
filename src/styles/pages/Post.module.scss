@@ -23,7 +23,18 @@
     font-size: 1.2em;
     margin-bottom: 0.4em;
   }
-  ul {
+  & > ul {
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     list-style: none;
+
+    @media screen and (max-width: 980px) {
+      grid-template-columns: 1fr !important;
+    }
+
+    li {
+      display: flex;
+    }
   }
 }

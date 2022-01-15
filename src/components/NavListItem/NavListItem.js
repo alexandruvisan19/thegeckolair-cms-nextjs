@@ -8,20 +8,22 @@ const NavListItem = ({ className, item }) => {
   });
 
   return (
-    <li key={item.id}>
-      {!item.path.includes('http') && !item.target && (
-        <Link href={`/page${item.path}`}>
-          <a title={item.title}>{item.label}</a>
-        </Link>
-      )}
-      {item.path.includes('http') && (
-        <a href={`/page${item.path}`} title={item.title} target={item.target}>
-          {item.label}
-        </a>
-      )}
+    <>
+      <li key={item.id}>
+        {!item.path.includes('http') && !item.target && (
+          <Link href={`/page${item.path}`}>
+            <a title={item.title}>{item.label}</a>
+          </Link>
+        )}
+        {item.path.includes('http') && (
+          <a href={`/page${item.path}`} title={item.title} target={item.target}>
+            {item.label}
+          </a>
+        )}
 
-      {nestedItems.length > 0 && <ul className={className}>{nestedItems}</ul>}
-    </li>
+        {nestedItems.length > 0 && <ul className={className}>{nestedItems}</ul>}
+      </li>
+    </>
   );
 };
 

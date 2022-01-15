@@ -2,38 +2,40 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { FaSearch } from 'react-icons/fa';
 
-// import useSite from 'hooks/use-site';
+import useSite from 'hooks/use-site';
 import useSearch, { SEARCH_STATE_LOADED } from 'hooks/use-search';
 import { postPathBySlug } from 'lib/posts';
-// import { findMenuByLocation, MENU_LOCATION_NAVIGATION_DEFAULT } from 'lib/menus';
-// import { categoryPathBySlug } from 'lib/categories';
+import { findMenuByLocation, MENU_LOCATION_NAVIGATION_DEFAULT } from 'lib/menus';
+import { slide as Menu } from 'react-burger-menu';
+import { useWindowSize } from '../../hooks/use-window-size';
 
 import Section from 'components/Section';
 
 import styles from './Nav.module.scss';
-// import NavListItem from 'components/NavListItem';
+import NavListItem from 'components/NavListItem';
 
 const SEARCH_VISIBLE = 'visible';
 const SEARCH_HIDDEN = 'hidden';
 
 const Nav = ({ procentScroll }) => {
   const formRef = useRef();
+  const size = useWindowSize();
 
   const [searchVisibility, setSearchVisibility] = useState(SEARCH_HIDDEN);
 
-  // const {
-  //   metadata = {}
-  //   menus,
-  //   categories = [],
-  // } = useSite();
+  const {
+    // metadata = {},
+    menus,
+    // categories = [],
+  } = useSite();
   // const { title } = metadata;
 
   // const hasRecentCategories = Array.isArray(categories) && categories.length > 0;
 
-  // const navigation = findMenuByLocation(menus, [
-  //   process.env.WORDPRESS_MENU_LOCATION_NAVIGATION,
-  //   MENU_LOCATION_NAVIGATION_DEFAULT,
-  // ]);
+  const navigation = findMenuByLocation(menus, [
+    process.env.WORDPRESS_MENU_LOCATION_NAVIGATION,
+    MENU_LOCATION_NAVIGATION_DEFAULT,
+  ]);
 
   const { query, results, search, clearSearch, state } = useSearch({
     maxResults: 5,
@@ -68,7 +70,6 @@ const Nav = ({ procentScroll }) => {
       removeResultsRoving();
       removeDocumentOnClick();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchVisibility]);
 
   /**
@@ -184,73 +185,95 @@ const Nav = ({ procentScroll }) => {
   }, []);
 
   return (
-    <nav className={styles.nav}>
-      <Section className={styles.navSection}>
-        <p className={styles.navName}>
-          <Link href="/">
-            <a>beardieden</a>
-          </Link>
-        </p>
-        <div className={styles.navMenu}>
-          <Link href="/categories/">
-            <a className={styles.footerMenuTitle}>
-              <strong>Categories</strong>
-            </a>
-          </Link>
-        </div>
-        {/* <ul className={styles.navMenu}>
-          {navigation?.map((listItem) => {
-            return <NavListItem key={listItem.id} className={styles.navSubMenu} item={listItem} />;
-          })}
-        </ul> */}
-        <div className={styles.navSearch}>
-          {searchVisibility === SEARCH_HIDDEN && (
-            <button onClick={handleOnToggleSearch} disabled={!searchIsLoaded}>
-              <span className="sr-only">Toggle Search</span>
-              <FaSearch />
-            </button>
-          )}
-          {searchVisibility === SEARCH_VISIBLE && (
-            <form ref={formRef} action="/search" data-search-is-active={!!query}>
-              <input
-                type="search"
-                name="q"
-                value={query || ''}
-                onChange={handleOnSearch}
-                autoComplete="off"
-                placeholder="What are you looking for?"
-                required
-              />
-              <div className={styles.navSearchResults}>
-                {results.length > 0 && (
-                  <ul>
-                    {results.map(({ slug, title }, index) => {
-                      return (
-                        <li key={slug}>
-                          <Link tabIndex={index} href={postPathBySlug(slug)}>
-                            <a>{title}</a>
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
-                {results.length === 0 && (
-                  <p>
-                    Sorry, not finding anything for <strong>{query}</strong>
-                  </p>
-                )}
-              </div>
-            </form>
-          )}
-        </div>
-      </Section>
-      {procentScroll && (
-        <div className={styles.progressMainWrapper}>
-          <div className={styles.progressMainStyle} style={{ width: `${procentScroll.value}%` }}></div>
-        </div>
+    <>
+      {size.width <= 980 && (
+        <Menu id={'sidebar'} className={styles.bm} outerContainerId={'outer-container'} pageWrapId={'page-wrap'} right>
+          <ul id="page-wrap" className={styles.navMenu}>
+            <li key="cat">
+              <Link href="/categories/">
+                <a>
+                  <strong>Categories</strong>
+                </a>
+              </Link>
+            </li>
+            {navigation?.map((listItem) => {
+              return <NavListItem key={listItem.id} className={styles.navSubMenu} item={listItem} />;
+            })}
+          </ul>
+          <div
+            className={searchVisibility === SEARCH_HIDDEN ? `${styles.navSearchHidden}` : `${styles.navSearchVisible}`}
+          >
+            {searchVisibility === SEARCH_HIDDEN && (
+              <button onClick={handleOnToggleSearch} disabled={!searchIsLoaded}>
+                <span className="sr-only">Toggle Search</span>
+                <FaSearch />
+              </button>
+            )}
+            {searchVisibility === SEARCH_VISIBLE && (
+              <form ref={formRef} action="/search" data-search-is-active={!!query}>
+                <input
+                  type="search"
+                  name="q"
+                  value={query || ''}
+                  onChange={handleOnSearch}
+                  autoComplete="off"
+                  placeholder="What are you looking for?"
+                  required
+                />
+                <div className={styles.navSearchResults}>
+                  {results.length > 0 && (
+                    <ul>
+                      {results.map(({ slug, title }, index) => {
+                        return (
+                          <li key={slug}>
+                            <Link tabIndex={index} href={postPathBySlug(slug)}>
+                              <a>{title}</a>
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
+                  {results.length === 0 && (
+                    <p>
+                      Sorry, not finding anything for <strong>{query}</strong>
+                    </p>
+                  )}
+                </div>
+              </form>
+            )}
+          </div>
+        </Menu>
       )}
-    </nav>
+      <nav className={styles.nav}>
+        <Section className={styles.navSection}>
+          <p className={styles.navName}>
+            <Link href="/">
+              <a>beardieden</a>
+            </Link>
+          </p>
+          {size.width > 980 && (
+            <ul id="page-wrap" className={styles.navMenu}>
+              <li key="cat">
+                <Link href="/categories/">
+                  <a>
+                    <strong>Categories</strong>
+                  </a>
+                </Link>
+              </li>
+              {navigation?.map((listItem) => {
+                return <NavListItem key={listItem.id} className={styles.navSubMenu} item={listItem} />;
+              })}
+            </ul>
+          )}
+        </Section>
+        {procentScroll && (
+          <div className={styles.progressMainWrapper}>
+            <div className={styles.progressMainStyle} style={{ width: `${procentScroll.value}%` }}></div>
+          </div>
+        )}
+      </nav>
+    </>
   );
 };
 

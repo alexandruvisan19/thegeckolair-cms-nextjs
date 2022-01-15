@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Helmet } from 'react-helmet';
 
-import { getPostBySlug, getAllPosts, getRelatedPosts, postPathBySlug, sanitizeExcerpt } from 'lib/posts';
+import { getPostBySlug, getAllPosts, getRelatedPosts, sanitizeExcerpt } from 'lib/posts';
 import { categoryPathBySlug } from 'lib/categories';
 import { formatDate } from 'lib/datetime';
 import { ArticleJsonLd } from 'lib/json-ld';
@@ -16,7 +16,7 @@ import HeaderPost from 'components/HeaderPost';
 import Section from 'components/Section';
 import Container from 'components/Container';
 // import ContainerPost from 'components/ContainerPost';
-// import PostCard from 'components/PostCard';
+import PostCard from 'components/PostCard';
 import Content from 'components/Content';
 import Metadata from 'components/Metadata';
 import Author from 'components/Author';
@@ -142,14 +142,14 @@ export default function Post({ post, socialImage, relatedPosts }) {
               ) : (
                 <span>More Posts</span>
               )}
-              <ul>
-                {relatedPostsList.map((post) => (
-                  <li key={post.title}>
-                    <Link href={postPathBySlug(post.slug)}>
-                      <a>{post.title}</a>
-                    </Link>
-                  </li>
-                ))}
+              <ul className={styles.posts}>
+                {relatedPostsList.map((post) => {
+                  return (
+                    <li key={post.slug}>
+                      <PostCard post={post} />
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}
