@@ -66,9 +66,9 @@
   }
 
   a {
-    color: #242729;
+    color: $color-black-050;
     font-size: 0.75rem;
-    background-color: #ffb256;
+    background-color: $color-primary-light3;
     padding: 4px 6px;
     border-radius: 5px;
     margin-right: 8px;
@@ -77,8 +77,8 @@
     &:hover {
       color: #fff;
       text-decoration: none !important;
-      background-color: #56a3ff;
-      transition-duration: 0.4s;
+      background-color: $color-primary-dark1;
+      transition-duration: 0.3s;
     }
 
     @media (max-width: 980px) {
@@ -92,7 +92,7 @@
   time {
     font-size: 0.75rem;
     font-weight: 500;
-    color: $color-black-300;
+    color: $color-gray-850;
     text-transform: uppercase;
     letter-spacing: 0.11em;
     padding: 5px 0 0.3px 0;

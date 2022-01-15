@@ -3,7 +3,7 @@
 
 .nav {
   width: 100%;
-  background-color: #fff5e9;
+  background-color: #fffcf8;
   height: 65px;
   position: sticky;
   top: 0;
@@ -12,7 +12,6 @@
 
 .progressMainWrapper {
   background-color: #fff5e9;
-  // height: 4px;
   position: sticky;
   top: 0;
   left: 0;
@@ -158,7 +157,7 @@
     padding: 0.5em;
     margin: 0 -0.5em;
     &:focus {
-      outline: 2px solid $color-blue-500;
+      outline: 2px solid $color-primary;
     }
 
     @media (hover: hover) {

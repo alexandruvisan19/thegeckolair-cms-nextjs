@@ -16,6 +16,7 @@ import HeaderPost from 'components/HeaderPost';
 import Section from 'components/Section';
 import Container from 'components/Container';
 // import ContainerPost from 'components/ContainerPost';
+// import PostCard from 'components/PostCard';
 import Content from 'components/Content';
 import Metadata from 'components/Metadata';
 import Author from 'components/Author';

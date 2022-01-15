@@ -281,7 +281,15 @@ export async function getRelatedPosts(category, postId, count = 5) {
     const { posts } = await getPostsByCategoryId(category.databaseId);
     const filtered = posts.filter(({ postId: id }) => id !== postId);
     const sorted = sortObjectsByDate(filtered);
-    relatedPosts = sorted.map((post) => ({ title: post.title, slug: post.slug }));
+    relatedPosts = sorted.map((post) => ({
+      title: post.title,
+      slug: post.slug,
+      excerpt: post.excerpt,
+      date: post.date,
+      featuredImage: post.featuredImage,
+      categories: post.categories,
+      author: post.author,
+    }));
   }
 
   if (relatedPosts.length > count) {

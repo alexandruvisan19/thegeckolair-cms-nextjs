@@ -19,11 +19,13 @@
     text-decoration: none;
     cursor: pointer;
     border: 1px solid $color-gray-200;
+    background-color: $color-gray-50;
     border-radius: 0.4em;
     padding: 0.2em 0.8em;
+    transition-duration: 0.3s;
     &:hover {
-      color: $color-primary;
-      background-color: $color-gray-50;
+      color: $color-black-050;
+      background-color: $color-primary-light2;
     }
     svg {
       width: 0.8rem;

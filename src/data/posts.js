@@ -28,7 +28,6 @@ export const QUERY_ALL_POSTS = gql`
               }
             }
           }
-          content
           date
           excerpt
           featuredImage {
