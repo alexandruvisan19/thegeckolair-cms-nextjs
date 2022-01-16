@@ -1,0 +1,5 @@
+.logo g:nth-child(1) {
+  :global {
+    animation: fill 1.5s ease forwards 1s;
+  }
+}

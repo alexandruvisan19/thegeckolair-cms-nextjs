@@ -13,6 +13,12 @@ body {
     "century gothic", cantarell, oxygen, ubuntu, sans-serif;
 }
 
+@keyframes fill {
+  to {
+    fill: #fcb33f;
+  }
+}
+
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
