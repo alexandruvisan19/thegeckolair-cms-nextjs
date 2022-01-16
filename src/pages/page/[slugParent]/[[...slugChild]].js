@@ -105,7 +105,6 @@ export default function Page({ page, breadcrumbs }) {
 
 export async function getStaticProps({ params = {} } = {}) {
   const { slugParent, slugChild } = params;
-  console.log(slugParent);
 
   // We can use the URI to look up our page and subsequently its ID, so
   // we can first contruct our URI from the page params

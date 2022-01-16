@@ -8,6 +8,7 @@ import { postPathBySlug } from 'lib/posts';
 import { findMenuByLocation, MENU_LOCATION_NAVIGATION_DEFAULT } from 'lib/menus';
 import { slide as Menu } from 'react-burger-menu';
 import { useWindowSize } from '../../hooks/use-window-size';
+import Logo from '../Svg/Logo';
 
 import Section from 'components/Section';
 
@@ -249,7 +250,9 @@ const Nav = ({ procentScroll }) => {
         <Section className={styles.navSection}>
           <p className={styles.navName}>
             <Link href="/">
-              <a>beardieden</a>
+              <a>
+                <Logo />
+              </a>
             </Link>
           </p>
           {size.width > 980 && (

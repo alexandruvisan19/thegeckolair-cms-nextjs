@@ -22,6 +22,15 @@ module.exports = withPlugins([[indexSearch], [feed], [sitemap], [socialImages]],
       },
     ];
   },
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ['@svgr/webpack'],
+    });
+
+    return config;
+  },
 
   // By enabling verbose logging, it will provide additional output details for
   // diagnostic purposes. By default is set to false.

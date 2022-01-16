@@ -1,5 +1,4 @@
 @import "styles/settings/__settings";
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap");
 
 .nav {
   width: 100%;
@@ -34,6 +33,7 @@
   padding-bottom: 0;
   margin: 0;
   max-width: 70rem;
+  padding: 0 10px;
   margin: 0 auto;
 }
 
@@ -50,21 +50,6 @@
   @media (min-width: 480px) {
     justify-content: flex-start;
     margin-top: 0;
-  }
-
-  a {
-    color: #171a2c;
-    font-size: 1.6rem;
-    font-weight: 600;
-    padding: 0.5em;
-    text-decoration: none;
-    border-bottom: solid 2px transparent;
-    font-weight: 800;
-
-    &:hover {
-      color: $color-primary;
-      transition-duration: 0.4s;
-    }
   }
 }
 
