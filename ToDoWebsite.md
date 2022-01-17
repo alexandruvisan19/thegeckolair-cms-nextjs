@@ -1,7 +1,18 @@
-1. Add Light/ Dark Theme
-2. Optimize SEO
-3. Build Homepage -> done
-4. Add side table of contents
-5. Add id's for headings post
-6. Add cookie consent
+To Do
 
+Add Light/ Dark Theme
+Optimize SEO
+Add side table of contents
+Add id's for headings post
+Add cookie consent -> not priority
+Organize CSS for each page
+Improve Category page
+
+Done
+
+Build Homepage
+Build Category page
+Add Hamburger for mobile
+Organize post add effects
+Page scroll bar
+Add detailed related posts to each post
