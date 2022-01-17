@@ -33,7 +33,7 @@ export default function Post({ post, socialImage, relatedPosts }) {
     AOS.init({
       easing: 'ease-out-cubic',
       once: false,
-      offset: 100,
+      offset: 250,
     });
   }, []);
   const [state] = useScrollIndicator();

@@ -3,7 +3,6 @@ import styles from './Logo.module.scss';
 
 const SvgComponent = () => (
   <svg
-    id={styles.logo}
     className={styles.logo}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 190 35"

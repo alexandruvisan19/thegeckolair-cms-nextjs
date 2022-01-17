@@ -71,6 +71,7 @@ const Nav = ({ procentScroll }) => {
       removeResultsRoving();
       removeDocumentOnClick();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchVisibility]);
 
   /**
@@ -189,18 +190,6 @@ const Nav = ({ procentScroll }) => {
     <>
       {size.width <= 980 && (
         <Menu id={'sidebar'} className={styles.bm} outerContainerId={'outer-container'} pageWrapId={'page-wrap'} right>
-          <ul id="page-wrap" className={styles.navMenu}>
-            <li key="cat">
-              <Link href="/categories/">
-                <a>
-                  <strong>Categories</strong>
-                </a>
-              </Link>
-            </li>
-            {navigation?.map((listItem) => {
-              return <NavListItem key={listItem.id} className={styles.navSubMenu} item={listItem} />;
-            })}
-          </ul>
           <div
             className={searchVisibility === SEARCH_HIDDEN ? `${styles.navSearchHidden}` : `${styles.navSearchVisible}`}
           >
@@ -244,6 +233,18 @@ const Nav = ({ procentScroll }) => {
               </form>
             )}
           </div>
+          <ul id="page-wrap" className={styles.navMenu}>
+            <li key="cat">
+              <Link href="/categories/">
+                <a>
+                  <strong>Categories</strong>
+                </a>
+              </Link>
+            </li>
+            {navigation?.map((listItem) => {
+              return <NavListItem key={listItem.id} className={styles.navSubMenu} item={listItem} />;
+            })}
+          </ul>
         </Menu>
       )}
       <nav className={styles.nav}>
@@ -264,9 +265,51 @@ const Nav = ({ procentScroll }) => {
                   </a>
                 </Link>
               </li>
-              {navigation?.map((listItem) => {
-                return <NavListItem key={listItem.id} className={styles.navSubMenu} item={listItem} />;
-              })}
+              <div
+                className={
+                  searchVisibility === SEARCH_HIDDEN ? `${styles.navSearchHidden}` : `${styles.navSearchVisible}`
+                }
+              >
+                {searchVisibility === SEARCH_HIDDEN && (
+                  <button onClick={handleOnToggleSearch} disabled={!searchIsLoaded}>
+                    <span className="sr-only">Toggle Search</span>
+                    <FaSearch />
+                  </button>
+                )}
+                {searchVisibility === SEARCH_VISIBLE && (
+                  <form ref={formRef} action="/search" data-search-is-active={!!query}>
+                    <input
+                      type="search"
+                      name="q"
+                      value={query || ''}
+                      onChange={handleOnSearch}
+                      autoComplete="off"
+                      placeholder="What are you looking for?"
+                      required
+                    />
+                    <div className={styles.navSearchResults}>
+                      {results.length > 0 && (
+                        <ul>
+                          {results.map(({ slug, title }, index) => {
+                            return (
+                              <li key={slug}>
+                                <Link tabIndex={index} href={postPathBySlug(slug)}>
+                                  <a>{title}</a>
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      )}
+                      {results.length === 0 && (
+                        <p>
+                          Sorry, not finding anything for <strong>{query}</strong>
+                        </p>
+                      )}
+                    </div>
+                  </form>
+                )}
+              </div>
             </ul>
           )}
         </Section>
