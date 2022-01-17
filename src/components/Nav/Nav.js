@@ -251,7 +251,7 @@ const Nav = ({ procentScroll }) => {
         <Section className={styles.navSection}>
           <p className={styles.navName}>
             <Link href="/">
-              <a>
+              <a aria-label="Logo">
                 <Logo />
               </a>
             </Link>

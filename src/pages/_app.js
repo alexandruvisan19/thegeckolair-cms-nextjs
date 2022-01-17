@@ -55,7 +55,6 @@ function App({ Component, pageProps = {}, metadata, recentPosts, categories, men
       />
       <SiteContext.Provider value={site}>
         <SearchProvider>
-          <Script></Script>
           <NextNProgress height={5} color={variables.progressbarColor} />
           <Component {...pageProps} />
         </SearchProvider>

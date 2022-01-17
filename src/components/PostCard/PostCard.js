@@ -38,7 +38,7 @@ const PostCard = ({ post, options = {} }) => {
       {featuredImage && (
         <div>
           <Link href={postPathBySlug(slug)}>
-            <a>
+            <a aria-label={title}>
               <FeaturedImage
                 {...featuredImage}
                 sticky={isSticky}
