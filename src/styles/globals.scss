@@ -23,14 +23,15 @@ body {
 .bm-burger-button {
   position: fixed;
   width: 36px;
-  height: 30px;
-  right: 20px;
-  top: 20px;
+  height: 23px;
+  right: 24px;
+  top: 24px;
 }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
   background: #0b1321;
+  height: 12% !important;
 }
 
 /* Color/shape of burger icon bars on hover*/
@@ -864,4 +865,14 @@ template {
 
 #ez-toc-container nav ul li {
   margin: 0.6rem 0;
+}
+
+@media screen and (min-width: 980px) {
+  .wp-block-image {
+    padding: 20px;
+    position: relative;
+    left: calc(-50vw + 50%);
+    width: 100vw;
+    text-align: center;
+  }
 }

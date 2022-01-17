@@ -34,6 +34,7 @@ export default class MyDocument extends Document {
         <Head>
           {this.helmetHeadComponents}
           <link href="https://fonts.googleapis.com/css2?family=Inter&display=optional" rel="stylesheet" />
+          {/* <link rel="stylesheet" href="bower_components/aos/dist/aos.css" defer /> */}
         </Head>
         <body {...this.helmetBodyAttrComponents}>
           <Main />

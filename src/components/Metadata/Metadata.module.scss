@@ -66,7 +66,7 @@
   }
 
   a {
-    color: $color-black-050;
+    color: $color-gray-900;
     font-size: 0.75rem;
     background-color: $color-primary-light3;
     padding: 4px 6px;
@@ -101,6 +101,6 @@
 }
 
 .metadataSticky {
-  color: #56a3ff;
+  color: $color-primary;
   margin-left: 10px;
 }

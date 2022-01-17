@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import { Helmet } from 'react-helmet';
 
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import { getPostBySlug, getAllPosts, getRelatedPosts, sanitizeExcerpt } from 'lib/posts';
 import { categoryPathBySlug } from 'lib/categories';
 import { formatDate } from 'lib/datetime';
@@ -25,6 +29,13 @@ import FeaturedImage from 'components/FeaturedImage';
 import styles from 'styles/pages/Post.module.scss';
 
 export default function Post({ post, socialImage, relatedPosts }) {
+  useEffect(() => {
+    AOS.init({
+      easing: 'ease-out-cubic',
+      once: false,
+      offset: 100,
+    });
+  }, []);
   const [state] = useScrollIndicator();
   const {
     title,
