@@ -92,7 +92,7 @@
     }
 
     svg {
-      fill: $color-gray-400;
+      fill: $color-secondary;
       transform: translateY(2px);
     }
 
@@ -124,7 +124,7 @@
 
   input {
     font-size: 0.845em;
-    border-radius: 7px;
+    border-color: $color-secondary;
   }
 
   button {

@@ -273,7 +273,7 @@ const Nav = ({ procentScroll }) => {
                 {searchVisibility === SEARCH_HIDDEN && (
                   <button onClick={handleOnToggleSearch} disabled={!searchIsLoaded}>
                     <span className="sr-only">Toggle Search</span>
-                    <FaSearch />
+                    <FaSearch color="red" />
                   </button>
                 )}
                 {searchVisibility === SEARCH_VISIBLE && (
