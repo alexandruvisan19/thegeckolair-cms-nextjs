@@ -41,10 +41,15 @@ body {
 
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
-  right: 32px !important;
-  top: 22px !important;
+  right: 26px !important;
+  top: 17px !important;
   width: 32px !important;
   height: 32px !important;
+
+  span {
+    top: 8px !important;
+    right: 0 !important;
+  }
 }
 
 /* Color/shape of close button cross */
@@ -65,8 +70,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: #fff2dd;
-  padding: 2.5em 1.5em 0;
+  background: $color-main-background;
+  padding: 3.5em 1.5em 0;
   font-size: 1.15em;
   overflow: unset !important;
 }
