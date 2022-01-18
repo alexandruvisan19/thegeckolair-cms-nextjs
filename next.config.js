@@ -14,14 +14,14 @@ module.exports = withPlugins([[indexSearch], [feed], [sitemap], [socialImages]],
     domains: ['i0.wp.com', 'i1.wp.com', 'i2.wp.com'],
   },
   trailingSlash: true,
-  async rewrites() {
-    return [
-      {
-        source: '/posts/page/1/',
-        destination: '/',
-      },
-    ];
-  },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: '/posts/page/1/',
+  //       destination: '/',
+  //     },
+  //   ];
+  // },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
