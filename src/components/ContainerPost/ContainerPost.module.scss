@@ -23,5 +23,9 @@
 
   @media (max-width: 980px) {
     flex-wrap: wrap-reverse;
+
+    div p {
+      font-size: 1.2rem !important;
+    }
   }
 }
