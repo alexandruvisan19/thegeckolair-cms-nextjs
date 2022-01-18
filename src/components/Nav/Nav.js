@@ -189,7 +189,7 @@ const Nav = ({ procentScroll }) => {
   return (
     <>
       {size.width <= 980 && (
-        <Menu id={'sidebar'} className={styles.bm} outerContainerId={'outer-container'} pageWrapId={'page-wrap'} right>
+        <Menu itemListElement="div" className={styles.burgerMenu} disableAutoFocus right>
           <div
             className={searchVisibility === SEARCH_HIDDEN ? `${styles.navSearchHidden}` : `${styles.navSearchVisible}`}
           >

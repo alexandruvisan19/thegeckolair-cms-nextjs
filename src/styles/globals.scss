@@ -19,84 +19,6 @@ body {
   }
 }
 
-/* Position and sizing of burger button */
-.bm-burger-button {
-  position: fixed;
-  width: 36px;
-  height: 23px;
-  right: 24px;
-  top: 24px;
-}
-
-/* Color/shape of burger icon bars */
-.bm-burger-bars {
-  background: #0b1321;
-  height: 13% !important;
-}
-
-/* Color/shape of burger icon bars on hover*/
-.bm-burger-bars-hover {
-  background: #de8800;
-}
-
-/* Position and sizing of clickable cross button */
-.bm-cross-button {
-  right: 26px !important;
-  top: 17px !important;
-  width: 32px !important;
-  height: 32px !important;
-
-  span {
-    top: 8px !important;
-    right: 0 !important;
-  }
-}
-
-/* Color/shape of close button cross */
-.bm-cross {
-  background: #0b1321;
-  height: 3px !important;
-  width: 32px !important;
-}
-
-/*
-Sidebar wrapper styles
-Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
-*/
-.bm-menu-wrap {
-  position: fixed;
-  height: 100%;
-}
-
-/* General sidebar styles */
-.bm-menu {
-  background: $color-main-background;
-  padding: 3.5em 1.5em 0;
-  font-size: 1.15em;
-  overflow: unset !important;
-}
-
-/* Morph shape necessary with bubble or elastic */
-.bm-morph-shape {
-  fill: #ffe2b4;
-}
-
-/* Wrapper for item list */
-.bm-item-list {
-  color: #b8b7ad;
-  padding: 0.8em;
-}
-
-/* Individual item */
-.bm-item {
-  display: inline-block;
-}
-
-/* Styling of overlay */
-.bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
-}
-
 /* width */
 ::-webkit-scrollbar {
   width: 15px;
@@ -104,138 +26,17 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: $color-gray-200;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: $color-gray-800;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
-}
-
-p {
-  line-height: 1.6;
-  margin: 1.2em 0;
-}
-
-ul {
-  padding-left: 1.2em;
-}
-
-a {
-  color: $color-primary;
-}
-
-img {
-  max-width: 100%;
-}
-
-input {
-  &[type="text"],
-  &[type="search"],
-  &[type="email"] {
-    outline-offset: 0;
-    padding: 0.4em 0.6em;
-  }
-}
-
-table {
-  border: 1px solid #ccc;
-  border-collapse: collapse;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  table-layout: fixed;
-}
-
-table caption {
-  font-size: 1.5em;
-  margin: 0.5em 0 0.75em;
-}
-
-table tr {
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
-  padding: 0.35em;
-}
-
-table th,
-table td {
-  padding: 0.625em;
-  text-align: center;
-}
-
-table th {
-  font-size: 0.85em;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-@media screen and (max-width: 600px) {
-  table {
-    border: 0;
-  }
-
-  table caption {
-    font-size: 1.3em;
-  }
-
-  table thead {
-    border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-
-  table tr {
-    border-bottom: 3px solid #ddd;
-    display: block;
-    margin-bottom: 0.625em;
-  }
-
-  table td {
-    border-bottom: 1px solid #ddd;
-    display: block;
-    font-size: 0.8em;
-    text-align: right;
-  }
-
-  table td::before {
-    /*
-    * aria-label has no advantage, it won't be read inside a table
-    content: attr(aria-label);
-    */
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  table td:last-child {
-    border-bottom: 0;
-  }
-}
-
-iframe {
-  width: 100%;
-}
-
-.sr-only {
-  display: block;
-  // overflow: hidden;
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-  width: 0;
-  height: 0;
 }
 
 // STYLE.CSS
@@ -752,4 +553,203 @@ template {
 
 [hidden] {
   display: none;
+}
+/* HAMBURGER MENU */
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 23px;
+  right: 24px;
+  top: 24px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #0b1321;
+  height: 13% !important;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #de8800;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  right: 26px !important;
+  top: 17px !important;
+  width: 32px !important;
+  height: 32px !important;
+
+  span {
+    top: 8px !important;
+    right: 0 !important;
+  }
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #0b1321;
+  height: 3px !important;
+  width: 32px !important;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: $color-main-background;
+  padding: 3.5em 1.5em 0;
+  font-size: 1.15em;
+  overflow: unset !important;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #ffe2b4;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+p {
+  line-height: 1.6;
+  margin: 1.2em 0;
+}
+
+ul {
+  padding-left: 1.2em;
+}
+
+a {
+  color: $color-primary;
+}
+
+img {
+  max-width: 100%;
+}
+
+input {
+  &[type="text"],
+  &[type="search"],
+  &[type="email"] {
+    outline-offset: 0;
+    padding: 0.4em 0.6em;
+  }
+}
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: 0.5em 0 0.75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 0.35em;
+}
+
+table th,
+table td {
+  padding: 0.625em;
+  text-align: center;
+}
+
+table th {
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+iframe {
+  width: 100%;
+}
+
+.sr-only {
+  display: block;
+  // overflow: hidden;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  width: 0;
+  height: 0;
 }
