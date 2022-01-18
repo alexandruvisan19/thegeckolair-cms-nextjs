@@ -66,18 +66,19 @@
   }
 
   a {
-    color: $color-black-900;
+    color: #000;
     font-size: 0.75rem;
-    background-color: $color-primary-light3;
+    background-color: $color-secondary-light2;
     padding: 4px 6px;
-    border-radius: 5px;
     margin-right: 8px;
     text-decoration: none !important;
+    border: 1px solid $color-black-900;
+    letter-spacing: 0.4px;
 
     &:hover {
-      color: #fff;
+      color: $color-gray-50;
       text-decoration: none !important;
-      background-color: $color-primary-dark1;
+      background-color: $color-secondary-dark1;
       transition-duration: 0.3s;
     }
 
