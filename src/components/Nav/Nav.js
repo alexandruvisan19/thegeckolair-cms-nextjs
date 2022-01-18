@@ -265,7 +265,7 @@ const Nav = ({ procentScroll }) => {
                   </a>
                 </Link>
               </li>
-              <div
+              <li
                 className={
                   searchVisibility === SEARCH_HIDDEN ? `${styles.navSearchHidden}` : `${styles.navSearchVisible}`
                 }
@@ -309,7 +309,7 @@ const Nav = ({ procentScroll }) => {
                     </div>
                   </form>
                 )}
-              </div>
+              </li>
             </ul>
           )}
         </Section>
