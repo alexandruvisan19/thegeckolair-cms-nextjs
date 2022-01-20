@@ -1,9 +1,8 @@
 {
-  "name": "next-wordpress-starter",
-  "homepage": "https://www.thebeardieden.com",
+  "name": "thegeckolair",
+  "homepage": "https://www.thegeckolair.com",
   "version": "0.1.0",
   "license": "MIT",
-  "author": "Colby Fayock <hello@colbyfayock.com>",
   "scripts": {
     "build": "next build && next export",
     "wpe-build": "npm run build",
