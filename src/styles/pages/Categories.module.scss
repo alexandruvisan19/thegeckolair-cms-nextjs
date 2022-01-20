@@ -24,7 +24,7 @@
     position: relative;
     border-radius: 8px;
     box-shadow: $box-shadow-medium;
-    color: white;
+    color: #fff;
     font-size: 1rem;
     height: 250px;
 
@@ -37,13 +37,13 @@
       top: -18px;
       left: -10px;
       display: inline-block;
-      background-color: #4f9fff;
+      background-color: $color-secondary-light3;
       color: #fff;
       z-index: 10;
       padding: 10px 15px;
+      letter-spacing: 0.02rem;
       font-size: 1rem;
       line-height: 1rem;
-      font-weight: 700;
       box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.14);
     }
     .count::after {
@@ -52,7 +52,7 @@
       position: absolute;
       left: -10px;
       bottom: -7px;
-      border-color: transparent #c3c4c6 transparent transparent;
+      border-color: transparent $border-gray-050 transparent transparent;
       border-style: inset solid inset inset;
       border-width: 0 10px 7px;
       filter: brightness(50%);
@@ -78,7 +78,7 @@
     font-size: 1.3rem;
     padding: 22px;
     border-radius: 0 0 8px 8px;
-    background-color: #4f9fff;
+    background-color: $color-secondary-light3;
     top: 85%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);

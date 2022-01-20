@@ -2,7 +2,7 @@
 
 .nav {
   width: 100%;
-  background-color: #fffcf8;
+  background-color: $color-main-background;
   height: 65px;
   position: sticky;
   top: 0;
@@ -10,7 +10,7 @@
 }
 
 .progressMainWrapper {
-  background-color: #fff2dd;
+  background-color: #e0def4;
   position: sticky;
   top: 0;
   left: 0;
@@ -20,7 +20,7 @@
 
 .progressMainStyle {
   height: 4px;
-  background: linear-gradient(120deg, #96c6ff 0%, #4398ff 90%);
+  background: linear-gradient(120deg, #9b97db 0%, #5b54c3 90%);
   transition: all 0.33s ease-out;
 }
 

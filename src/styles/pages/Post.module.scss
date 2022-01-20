@@ -45,7 +45,7 @@
   }
 
   a {
-    color: $color-secondary;
+    color: $color-secondary-dark1;
     transition-duration: 0.2s;
 
     &:hover {
@@ -60,7 +60,6 @@
     margin: 2.6rem 0;
     border-left: 4px solid $color-secondary-light3;
     font-weight: 500;
-    font-size: 1rem;
     color: #2c2b27;
     box-shadow: $box-shadow-medium;
   }
@@ -90,8 +89,9 @@
   [class~="product-box"] {
     margin: 45px 0 40px 0;
     display: flex;
+    align-items: center;
     border: 1px solid $border-gray-050;
-    padding: 25px 25px 20px 25px !important;
+    padding: 1% 25px 1% 25px !important;
     border-radius: 10px;
     position: relative;
     box-shadow: $box-shadow-small;
@@ -141,23 +141,23 @@
     }
 
     [class~="product-button"] {
-      border-bottom: 4px solid #df8600;
-      background-color: #ffa63b;
+      border-bottom: 4px solid $color-button-border-amazon;
+      background-color: $color-button-amazon;
       border-radius: 7px;
-      padding: 10px 14px;
+      padding: 5px 5px;
       display: inline-block;
 
       a {
         text-decoration: none;
-        font-weight: bold;
+        font-weight: 600;
         padding: 10px 14px;
         letter-spacing: 0.6px;
-        color: #fff;
+        color: $color-gray-50;
       }
 
       &:hover {
         border-bottom: none;
-        border-top: 4px solid #ff9900;
+        border-top: 4px solid $color-button-amazon;
       }
     }
 
@@ -172,7 +172,7 @@
     [class~="affiliate-text"] {
       font-style: italic;
       font-size: 0.9rem;
-      color: #666666b5;
+      color: $color-gray-850;
       position: relative;
       top: 15px;
       margin-bottom: 1rem !important;
@@ -183,12 +183,12 @@
       top: -18px;
       left: -10px;
       display: inline-block;
-      background-color: $color-secondary-light3;
-      color: #fff;
+      background-color: $color-secondary-dark1;
+      color: $color-gray-50;
       z-index: 1;
       padding: 10px 15px;
-      letter-spacing: 1px;
-      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      font-size: 1rem;
       line-height: 1rem;
       font-weight: 700;
       box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.14);

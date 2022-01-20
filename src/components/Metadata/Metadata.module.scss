@@ -66,19 +66,21 @@
   }
 
   a {
-    color: #000;
+    color: $border-gray-050;
     font-size: 0.75rem;
-    background-color: $color-secondary-light2;
-    padding: 3px 6px;
+    background-color: $color-secondary-dark1;
+    font-weight: 500;
+    padding: 3px 8px;
     margin-right: 8px;
     text-decoration: none !important;
-    border: 1px solid $color-black-900;
+    border-radius: 4px;
+    // border: 1px solid $border-gray-050;
     letter-spacing: 0.4px;
 
     &:hover {
-      color: $color-gray-50;
+      color: #fff;
       text-decoration: none !important;
-      background-color: $color-secondary-dark1;
+      background-color: $color-secondary-dark3;
       transition-duration: 0.3s;
     }
 
@@ -95,13 +97,17 @@
     font-weight: 500;
     color: $color-gray-850;
     text-transform: uppercase;
-    letter-spacing: 0.11em;
+    letter-spacing: 0.1em;
     padding: 5px 0 0.3px 0;
     font-weight: 600;
+
+    @media screen and (max-width: 980px) {
+      font-size: 0.85rem;
+    }
   }
 }
 
 .metadataSticky {
-  color: $color-primary;
+  color: $color-primary-dark1;
   margin-left: 10px;
 }
