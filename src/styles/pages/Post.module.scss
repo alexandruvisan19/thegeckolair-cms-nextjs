@@ -91,7 +91,7 @@
     display: flex;
     align-items: center;
     border: 1px solid $border-gray-050;
-    padding: 1% 25px 1% 25px !important;
+    padding: 1% 25px 1% 25px;
     border-radius: 10px;
     position: relative;
     box-shadow: $box-shadow-small;
@@ -105,6 +105,7 @@
     }
 
     @media screen and (max-width: 600px) {
+      padding: 25px;
       flex-wrap: wrap-reverse;
     }
 
