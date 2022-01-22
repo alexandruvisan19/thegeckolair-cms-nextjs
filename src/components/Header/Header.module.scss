@@ -12,6 +12,10 @@
   background-attachment: fixed;
   border-bottom: 1px solid $border-gray-050;
 
+  @media screen and (max-width: 980px) {
+    padding: 13% 4.5% 8% 4.5%;
+  }
+
   div {
     padding: 0;
   }
