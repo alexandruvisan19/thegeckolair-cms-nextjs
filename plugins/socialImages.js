@@ -54,7 +54,7 @@ module.exports = function socialImages(nextConfig = {}) {
   };
 
   const { WORDPRESS_GRAPHQL_ENDPOINT } = env;
-  console.log(env);
+
   return Object.assign({}, nextConfig, {
     webpack(config, options) {
       if (config.watchOptions) {
