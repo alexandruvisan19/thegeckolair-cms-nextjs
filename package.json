@@ -1,10 +1,10 @@
 {
-  "name": "geckolair",
+  "name": "thegeckolair",
   "homepage": "https://www.thegeckolair.com",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "next build && next export",
+    "build": "next build",
     "wpe-build": "npm run build",
     "dev": "next dev",
     "export": "next export",
@@ -40,9 +40,12 @@
     "react-dom": "17.0.2",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
+    "rehype-parse": "^8.0.3",
+    "rehype-stringify": "^9.0.2",
     "rss": "^1.2.2",
     "sass": "^1.45.1",
-    "style.css": "^1.0.0"
+    "unified": "^10.1.1",
+    "unist-util-visit": "^4.1.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.2.0",

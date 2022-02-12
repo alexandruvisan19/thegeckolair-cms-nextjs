@@ -1,21 +1,15 @@
 import Link from 'next/link';
 
-import { postPathBySlug, sanitizeExcerpt } from 'lib/posts';
+import { postPathBySlug } from 'lib/posts';
 
-import Metadata from 'components/Metadata';
-
-import styles from './PostCard.module.scss';
+import styles from './RelatedPostCard.module.scss';
 import FeaturedImage from 'components/FeaturedImage';
 
 const PostCard = ({ post, options = {} }) => {
-  const { title, excerpt, slug, date, author, categories, isSticky = false, featuredImage } = post;
+  const { title, slug, date, categories, featuredImage } = post;
   const { excludeMetadata = [] } = options;
 
   const metadata = {};
-
-  if (!excludeMetadata.includes('author')) {
-    metadata.author = author;
-  }
 
   if (!excludeMetadata.includes('date')) {
     metadata.date = date;
@@ -27,10 +21,6 @@ const PostCard = ({ post, options = {} }) => {
 
   let postCardStyle = styles.postCard;
 
-  if (isSticky) {
-    postCardStyle = `${postCardStyle} ${styles.postCardSticky}`;
-  }
-
   return (
     <div className={postCardStyle}>
       {featuredImage && (
@@ -39,7 +29,6 @@ const PostCard = ({ post, options = {} }) => {
             <a aria-label={title}>
               <FeaturedImage
                 {...featuredImage}
-                sticky={isSticky}
                 src={featuredImage.sourceUrl}
                 dangerouslySetInnerHTML={featuredImage.caption}
               />
@@ -48,7 +37,6 @@ const PostCard = ({ post, options = {} }) => {
         </div>
       )}
       <div>
-        {/* {isSticky && <FaMapPin aria-label="Sticky Post" />} */}
         <Link href={postPathBySlug(slug)}>
           <a>
             <h3
@@ -59,16 +47,6 @@ const PostCard = ({ post, options = {} }) => {
             />
           </a>
         </Link>
-        {excerpt && (
-          <div
-            className={styles.postCardContent}
-            dangerouslySetInnerHTML={{
-              __html: sanitizeExcerpt(excerpt),
-            }}
-          />
-        )}
-        <Metadata className={styles.postCardMetadata} {...metadata} />
-        {/* <Author className={styles.postCardMetadata} {...metadata} /> */}
       </div>
     </div>
   );

@@ -1,18 +1,15 @@
 import Link from 'next/link';
 
 import { categoryPathBySlug } from 'lib/categories';
-// import { authorPathByName } from 'lib/users';
-import { formatDate } from 'lib/datetime';
 import ClassName from 'models/classname';
 
-import { FaMapPin } from 'react-icons/fa';
 import styles from './Metadata.module.scss';
 
 const DEFAULT_METADATA_OPTIONS = {
   compactCategories: true,
 };
 
-const Metadata = ({ className, date, categories, options = DEFAULT_METADATA_OPTIONS, isSticky = false }) => {
+const Metadata = ({ className, categories, options = DEFAULT_METADATA_OPTIONS }) => {
   const metadataClassName = new ClassName(styles.metadata);
 
   metadataClassName.addIf(className, className);
@@ -62,18 +59,6 @@ const Metadata = ({ className, date, categories, options = DEFAULT_METADATA_OPTI
               })}
             </ul>
           )}
-        </li>
-      )}
-      {date && (
-        <li className={styles.metadataDate}>
-          <time pubdate="pubdate" dateTime={date}>
-            {formatDate(date)}
-          </time>
-        </li>
-      )}
-      {isSticky && (
-        <li className={styles.metadataSticky}>
-          <FaMapPin aria-label="Sticky Post" />
         </li>
       )}
     </ul>

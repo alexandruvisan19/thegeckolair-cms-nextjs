@@ -71,7 +71,7 @@ App.getInitialProps = async function (appContext) {
   });
 
   const { categories } = await getCategories({
-    count: 10,
+    count: 20,
   });
 
   const { menus } = await getAllMenus();

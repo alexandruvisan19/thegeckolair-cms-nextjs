@@ -11,6 +11,11 @@ export const QUERY_ALL_CATEGORIES = gql`
           name
           slug
           count
+          parent {
+            node {
+              databaseId
+            }
+          }
         }
       }
     }

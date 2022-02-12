@@ -4,7 +4,7 @@
   text-align: center;
   font-size: 1.3rem;
   font-weight: 300;
-  color: #61626a;
+  color: #000;
   max-width: 36em;
   margin-left: auto;
   margin-right: auto;
@@ -16,19 +16,30 @@
   grid-template-columns: repeat(3, 1fr);
   grid-auto-columns: 1fr;
   list-style: none;
-  padding-left: 0;
   margin: -1rem 0;
+  padding-left: 0;
 
-  li {
-    display: flex;
-    flex-direction: inherit;
+  @media screen and (max-width: 980px) {
+    padding-left: 0;
+  }
+
+  figure:first-child {
+    // margin: 0 0 0.4rem 0;
+
+    @media screen and (max-width: 980px) {
+      // margin: 0 0 1rem 0;
+    }
+  }
+
+  & > li {
+    // display: flex;
+    // flex-direction: inherit;
+    @media screen and (min-width: 980px) {
+      display: flex;
+    }
 
     div {
       display: block;
-    }
-
-    div:last-child {
-      padding-left: 0;
     }
   }
 

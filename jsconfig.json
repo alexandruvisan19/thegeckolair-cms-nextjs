@@ -4,7 +4,7 @@
     "baseUrl": "./src",
     "lib": ["dom", "dom.iterable", "esnext"],
     "paths": {
-      "public/*": ["../public/*"],
+      "public/*": ["../public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

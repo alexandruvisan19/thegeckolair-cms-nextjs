@@ -70,7 +70,7 @@ const Footer = () => {
                   </Link>
                   <ul className={styles.footerMenuItems}>
                     {categories.map((category) => {
-                      if (category.count < 1) return;
+                      if (category.count < 1 || category.parent !== null) return;
                       const { id, slug, name } = category;
                       return (
                         <li key={id}>

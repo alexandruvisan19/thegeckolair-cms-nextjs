@@ -1,34 +1,33 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_ALL_POSTS = gql`
-  query AllPosts {
-    posts(first: 10000, where: { hasPassword: false }) {
+export const POST_FIELDS = gql`
+  fragment PostFields on Post {
+    id
+    categories {
       edges {
         node {
-          author {
-            node {
-              avatar {
-                height
-                url
-                width
-              }
-              id
-              name
-              slug
-            }
-          }
+          categoryId
           id
-          categories {
-            edges {
-              node {
-                databaseId
-                id
-                name
-                slug
-              }
-            }
-          }
-          date
+          name
+          slug
+        }
+      }
+    }
+    date
+    modified
+    title
+    postId
+    slug
+  }
+`;
+
+export const QUERY_ALL_POSTS = gql`
+  ${POST_FIELDS}
+  {
+    posts(first: 10000) {
+      edges {
+        node {
+          ...PostFields
           excerpt
           featuredImage {
             node {
@@ -40,10 +39,7 @@ export const QUERY_ALL_POSTS = gql`
               id
             }
           }
-          modified
           databaseId
-          title
-          slug
           isSticky
         }
       }
@@ -94,42 +90,17 @@ export const QUERY_POST_BY_SLUG = gql`
       databaseId
       title
       slug
-      isSticky
     }
   }
 `;
 
 export const QUERY_POSTS_BY_CATEGORY_ID = gql`
   query PostsByCategoryId($categoryId: Int!) {
-    posts(where: { categoryId: $categoryId, hasPassword: false }) {
+    posts(first: 100, where: { categoryId: $categoryId }) {
       edges {
         node {
-          author {
-            node {
-              avatar {
-                height
-                url
-                width
-              }
-              id
-              name
-              slug
-            }
-          }
           id
-          categories {
-            edges {
-              node {
-                databaseId
-                id
-                name
-                slug
-              }
-            }
-          }
-          content
           date
-          excerpt
           featuredImage {
             node {
               altText
@@ -140,11 +111,9 @@ export const QUERY_POSTS_BY_CATEGORY_ID = gql`
               srcSet
             }
           }
-          modified
           databaseId
           title
           slug
-          isSticky
         }
       }
     }
@@ -153,21 +122,10 @@ export const QUERY_POSTS_BY_CATEGORY_ID = gql`
 
 export const QUERY_POSTS_BY_AUTHOR_SLUG = gql`
   query PostByAuthorSlug($slug: String!) {
-    posts(where: { authorName: $slug, hasPassword: false }) {
+    posts(where: { authorName: $slug }) {
       edges {
         node {
-          categories {
-            edges {
-              node {
-                databaseId
-                id
-                name
-                slug
-              }
-            }
-          }
           date
-          excerpt
           featuredImage {
             node {
               altText
@@ -179,11 +137,9 @@ export const QUERY_POSTS_BY_AUTHOR_SLUG = gql`
             }
           }
           id
-          modified
           databaseId
           slug
           title
-          isSticky
         }
       }
     }
@@ -206,7 +162,6 @@ export const QUERY_POST_SEO_BY_SLUG = gql`
         opengraphPublisher
         opengraphTitle
         opengraphType
-        readingTime
         title
         twitterDescription
         twitterTitle

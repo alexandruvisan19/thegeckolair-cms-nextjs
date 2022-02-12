@@ -66,7 +66,6 @@ export async function getPostBySlug(slug) {
 
     post.metaTitle = seo.title;
     post.metaDescription = seo.metaDesc;
-    post.readingTime = seo.readingTime;
 
     // The SEO plugin by default includes a canonical link, but we don't want to use that
     // because it includes the WordPress host, not the site host. We manage the canonical
@@ -274,7 +273,7 @@ export function mapPostData(post = {}) {
  * getRelatedPosts
  */
 
-export async function getRelatedPosts(category, postId, count = 4) {
+export async function getRelatedPosts(category, postId, count = 3) {
   let relatedPosts = [];
 
   if (category) {
@@ -284,11 +283,8 @@ export async function getRelatedPosts(category, postId, count = 4) {
     relatedPosts = sorted.map((post) => ({
       title: post.title,
       slug: post.slug,
-      excerpt: post.excerpt,
       date: post.date,
       featuredImage: post.featuredImage,
-      categories: post.categories,
-      author: post.author,
     }));
   }
 

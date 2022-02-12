@@ -2,10 +2,11 @@ import Link from 'next/link';
 
 import { authorPathByName } from 'lib/users';
 import ClassName from 'models/classname';
+import { formatDate } from 'lib/datetime';
 
 import styles from './Author.module.scss';
 
-const Author = ({ className, author }) => {
+const Author = ({ className, author, date }) => {
   const metadataClassName = new ClassName(styles.author);
   const authorClassName = new ClassName(styles.authorCardContent);
 
@@ -25,10 +26,18 @@ const Author = ({ className, author }) => {
                 alt="Author Avatar"
               />
             )}
-            By{' '}
+            <i>by</i>{' '}
             <Link href={authorPathByName(author.name)}>
               <a rel="author">{author.name}</a>
             </Link>
+            <span>&nbsp; | &nbsp;</span>
+            {date && (
+              <span className={styles.metadataDate}>
+                <time pubdate="pubdate" dateTime={date}>
+                  {formatDate(date)}
+                </time>
+              </span>
+            )}
           </address>
         </span>
       )}

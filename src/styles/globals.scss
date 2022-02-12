@@ -1,51 +1,19 @@
 @import "styles/settings/__settings";
+@import "styles/settings/_typography";
 
 * {
   box-sizing: border-box;
 }
 
-html,
-body {
+// STYLE.CSS
+html {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir, "segoe ui", "fira sans", roboto, noto,
-    "droid sans", "liberation sans", "lucida grande", "helvetica neue", helvetica, "franklin gothic medium",
-    "century gothic", cantarell, oxygen, ubuntu, sans-serif;
-}
-
-@keyframes fill {
-  to {
-    fill: #fcb33f;
-  }
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 15px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: $color-gray-200;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: $color-gray-800;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-// STYLE.CSS
-/*! style.css v1.0.0 | ISC License | https://github.com/ungoldman/style.css */
-html {
-  color: #303030;
+  font-family: $font-family-default;
+  color: #2c2b27;
   background-color: white;
   box-sizing: border-box;
-  font-size: calc(14px + 0.25vw);
+  font-size: calc(16px + 0.25vw);
   line-height: 1.55;
   -webkit-font-kerning: normal;
   font-kerning: normal;
@@ -72,6 +40,10 @@ main {
   display: block;
 }
 
+figcaption {
+  text-align: center;
+}
+
 *,
 *::before,
 *::after {
@@ -85,6 +57,7 @@ ol,
 dl,
 table,
 pre {
+  font-family: $font-family-paragraphs;
   margin-top: 0;
   margin-bottom: 1.25em;
 }
@@ -99,11 +72,13 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 500;
-  line-height: 1.25em;
+  font-family: $font-family-headers;
+  font-weight: 800;
+  line-height: 1.2em;
   margin-bottom: 1.25rem;
   margin-top: 2rem;
   position: relative;
+  letter-spacing: 0.011rem;
 }
 
 h1 small,
@@ -113,7 +88,7 @@ h4 small,
 h5 small,
 h6 small {
   color: #777;
-  font-size: 0.7em;
+  font-size: 0.7rem;
   font-weight: 300;
 }
 
@@ -123,36 +98,46 @@ h3 code,
 h4 code,
 h5 code,
 h6 code {
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 
 h1 {
-  font-size: 2.75em;
+  font-size: 2.45rem;
 }
 
 h2 {
-  font-size: 2.25em;
+  font-size: 1.8rem;
+  --cap-image-left: url(https://wordpress.thegeckolair.com/wp-content/themes/carbonate-master/images/left.svg);
+  --cap-image-right: url(https://wordpress.thegeckolair.com/wp-content/themes/carbonate-master/images/right.svg);
+  display: inline;
+  padding: 0 calc(0.12em + calc(4px * calc(12 / 8)));
+  box-decoration-break: clone;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(180deg, $color-secondary-light1, $color-secondary-light1), var(--cap-image-left),
+    var(--cap-image-right);
+  background-position-x: calc(4px * calc(12 / 8)), 0, 100%;
+  background-position-y: calc(100% + -1px);
+  background-size: calc(100% - 10px) 12px, auto 12px, auto 12px;
 }
 
 h3 {
-  font-size: 1.75em;
+  font-size: 1.5rem;
 }
 
 h4 {
-  font-size: 1.5em;
+  font-size: 1.4rem;
 }
 
 h5 {
-  font-size: 1.25em;
+  font-size: 1.3rem;
 }
 
 h6 {
-  font-size: 1.15em;
-  color: #575757;
+  font-size: 1.2em;
 }
 
 p {
-  letter-spacing: -0.01em;
+  letter-spacing: 0.011rem;
 }
 
 a {
@@ -176,8 +161,12 @@ a:hover {
 
 ul,
 ol {
+  counter-reset: cupcake;
   padding: 0;
-  padding-left: 2em;
+
+  li::marker {
+    color: $color-primary;
+  }
 }
 
 ul ol,
@@ -198,6 +187,24 @@ ul ol ol,
 ol ul ol,
 ol ol ol {
   list-style-type: lower-alpha;
+}
+
+ol {
+  margin-top: 1.2em;
+  list-style: none;
+}
+
+ol li {
+  counter-increment: cupcake;
+}
+
+ol li:before {
+  content: counters(cupcake, "") ". ";
+  // font-size: 1.05em;
+  /* Whatever custom styles you want here */
+  color: #3e5fcd;
+  font-weight: bold;
+  font-family: cursive;
 }
 
 li > p {
@@ -326,25 +333,25 @@ table {
   overflow: auto;
   word-break: normal;
   word-break: keep-all;
+  table-layout: fixed;
+  border-radius: 15px;
 }
 
 table th,
 table td {
-  padding: 6px 13px;
-  border: 1px solid #ddd;
+  border: none;
+  padding: 0.625em;
+  text-align: center;
+  font-size: 0.85em;
 }
 
-table th {
-  font-weight: bold;
-}
-
-table tr {
-  background-color: #fff;
-  border-top: 1px solid #ccc;
+table p {
+  margin: 5px;
+  line-height: 1.4;
 }
 
 table tr:nth-child(2n) {
-  background-color: #f8f8f8;
+  background-color: #93a4e32e;
 }
 
 hr {
@@ -543,10 +550,6 @@ summary {
   display: list-item;
 }
 
-canvas {
-  display: inline-block;
-}
-
 template {
   display: none;
 }
@@ -554,6 +557,7 @@ template {
 [hidden] {
   display: none;
 }
+
 /* HAMBURGER MENU */
 /* Position and sizing of burger button */
 .bm-burger-button {
@@ -561,12 +565,16 @@ template {
   width: 36px;
   height: 23px;
   right: 24px;
-  top: 20px;
+  top: 24px;
+
+  @media screen and (max-width: 980px) {
+    top: 20px;
+  }
 }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #0b1321;
+  background: #2c2b27;
   height: 13% !important;
 }
 
@@ -578,7 +586,7 @@ template {
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
   right: 26px !important;
-  top: 17px !important;
+  top: 12px !important;
   width: 32px !important;
   height: 32px !important;
 
@@ -590,7 +598,7 @@ template {
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: #0b1321;
+  background: #2c2b27;
   height: 3px !important;
   width: 32px !important;
 }
@@ -607,20 +615,19 @@ Note: Beware of modifying this element as it can break the animations - you shou
 /* General sidebar styles */
 .bm-menu {
   background: $color-main-background;
-  padding: 3.5em 1.5em 0;
+  padding: 2em 1.5em 0;
   font-size: 1.15em;
   overflow: unset !important;
 }
 
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
-  fill: #ffe2b4;
+  fill: $color-primary;
 }
 
 /* Wrapper for item list */
 .bm-item-list {
   color: #b8b7ad;
-  padding: 0.8em;
 }
 
 /* Individual item */
@@ -630,7 +637,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Styling of overlay */
 .bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.8) !important;
 }
 
 p {
@@ -659,86 +666,14 @@ input {
   }
 }
 
-table {
-  border: 1px solid #ccc;
-  border-collapse: collapse;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  table-layout: fixed;
-}
-
 table caption {
   font-size: 1.5em;
   margin: 0.5em 0 0.75em;
 }
 
-table tr {
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
-  padding: 0.35em;
+table thead {
+  background-color: $color-primary-light1;
 }
-
-table th,
-table td {
-  padding: 0.625em;
-  text-align: center;
-}
-
-table th {
-  font-size: 0.85em;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-// @media screen and (max-width: 600px) {
-//   table {
-//     border: 0;
-//   }
-
-//   table caption {
-//     font-size: 1.3em;
-//   }
-
-//   table thead {
-//     border: none;
-//     clip: rect(0 0 0 0);
-//     height: 1px;
-//     margin: -1px;
-//     overflow: hidden;
-//     padding: 0;
-//     position: absolute;
-//     width: 1px;
-//   }
-
-//   table tr {
-//     border-bottom: 3px solid #ddd;
-//     display: block;
-//     margin-bottom: 0.625em;
-//   }
-
-//   table td {
-//     border-bottom: 1px solid #ddd;
-//     display: block;
-//     font-size: 0.8em;
-//     text-align: right;
-//   }
-
-//   table td::before {
-//     /*
-//     * aria-label has no advantage, it won't be read inside a table
-//     content: attr(aria-label);
-//     */
-//     content: attr(data-label);
-//     float: left;
-//     font-weight: bold;
-//     text-transform: uppercase;
-//   }
-
-//   table td:last-child {
-//     border-bottom: 0;
-//   }
-// }
 
 iframe {
   width: 100%;

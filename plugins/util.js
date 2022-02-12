@@ -62,6 +62,11 @@ function createApolloClient(url) {
   return new ApolloClient({
     uri: url,
     cache: new InMemoryCache(),
+    defaultOptions: {
+      query: {
+        fetchPolicy: 'no-cache',
+      },
+    },
   });
 }
 

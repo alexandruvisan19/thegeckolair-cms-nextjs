@@ -7,7 +7,7 @@ import { QUERY_ALL_PAGES, QUERY_PAGE_BY_URI, QUERY_PAGE_SEO_BY_URI } from 'data/
  */
 
 export function pagePathBySlug(slug) {
-  return `/${slug}`;
+  return `/posts/${slug}`;
 }
 
 /**
@@ -56,7 +56,6 @@ export async function getPageByUri(uri) {
 
     page.metaTitle = seo.title;
     page.description = seo.metaDesc;
-    page.readingTime = seo.readingTime;
 
     // The SEO plugin by default includes a canonical link, but we don't want to use that
     // because it includes the WordPress host, not the site host. We manage the canonical

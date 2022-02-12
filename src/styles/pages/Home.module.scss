@@ -13,10 +13,14 @@
   list-style: none;
   padding-left: 0;
   margin: -1rem 0;
+  row-gap: 0.6rem;
+
+  li:nth-child(1) > div > div:nth-child(2) {
+    padding-left: 2rem;
+  }
 
   li {
-    display: flex;
-    flex-direction: inherit;
+    display: grid;
   }
 
   & > li:nth-child(1) {
@@ -65,6 +69,10 @@
 
     & > li {
       grid-column: 1/7 !important;
+    }
+
+    li:nth-child(1) > div > div:nth-child(2) {
+      padding-left: 0;
     }
   }
 }
